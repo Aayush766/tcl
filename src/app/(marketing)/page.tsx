@@ -4,7 +4,7 @@ import Footer from "@/components/layout/footer";
 import Hero from "@/components/sections/hero";
 import ServicesGrid from "@/components/sections/services-grid";
 import WorkflowTimeline from "@/components/sections/workflow-timeline";
-import ROICalculator from "@/components/sections/roi-calculator";
+
 import Testimonials from "@/components/sections/testimonials";
 import PricingPreview from "@/components/sections/pricing-preview";
 import FAQ from "@/components/sections/faq";
@@ -22,7 +22,7 @@ export default function HomePage() {
 
       <WorkflowTimeline />
 
-      {/* <ROICalculator /> */}
+      
 
       <PricingPreview />
 
