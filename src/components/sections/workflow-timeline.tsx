@@ -2,19 +2,20 @@
 
 import { motion, useScroll, useSpring, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 
 const steps = [
-  { title: "Discovery", desc: "Uncovering your core business DNA and objectives.", tag: "RECON" },
-  { title: "Strategy", desc: "Mapping the neural pathways for digital growth.", tag: "PLAN" },
-  { title: "Research", desc: "Analyzing market gaps and competitor weak points.", tag: "DATA" },
-  { title: "UI/UX", desc: "Crafting immersive, high-conversion interfaces.", tag: "DESIGN" },
-  { title: "Development", desc: "Engineering with elite performance in mind.", tag: "BUILD" },
-  { title: "AI Integration", desc: "Injecting custom neural models into the stack.", tag: "NEURAL" },
-  { title: "SEO Optimization", desc: "Ensuring maximum algorithmic visibility.", tag: "REACH" },
-  { title: "Testing", desc: "Rigorous stress-testing and quality assurance.", tag: "STRESS" },
-  { title: "Deployment", desc: "Atomic, zero-downtime launch sequence.", tag: "LAUNCH" },
-  { title: "Scaling", desc: "Expanding infrastructure to meet global demand.", tag: "GROW" },
-  { title: "Support", desc: "Continuous 24/7 neural system monitoring.", tag: "LIVE" },
+  { title: "Discovery", desc: "We analyze your business model, operational bottlenecks, and core scaling opportunities.", tag: "RECON" },
+  { title: "Strategy", desc: "We design a comprehensive technical and growth roadmap aligned to your revenue objectives.", tag: "PLAN" },
+  { title: "Research", desc: "We audit market gaps, benchmark competitors, and isolate structural technological advantages.", tag: "DATA" },
+  { title: "UI/UX Architecture", desc: "Crafting fluid, premium user experiences designed specifically for conversion and retention.", tag: "DESIGN" },
+  { title: "Development", desc: "Engineering clean, optimized code architectures engineered for speed, utility, and absolute stability.", tag: "BUILD" },
+  { title: "AI Integration", desc: "Deploying custom AI models, specialized assistants, and workflows directly into your operational stack.", tag: "NEURAL" },
+  { title: "SEO Strategy", desc: "Optimizing technical search visibility to capture market share and drive systematic inbound loops.", tag: "REACH" },
+  { title: "Stress Testing", desc: "Conducting rigorous quality assurance parameters to guarantee ironclad system performance under load.", tag: "STRESS" },
+  { title: "Deployment", desc: "Executing a smooth, zero-downtime structural launch to bring your system live safely.", tag: "LAUNCH" },
+  { title: "Scaling", desc: "Expanding operational capabilities and cloud environments to meet increasing market demand.", tag: "GROW" },
+  { title: "Continuous Support", desc: "Providing proactive infrastructure optimization and maintenance to keep your software running efficiently.", tag: "LIVE" },
 ];
 
 export default function WorkflowTimeline() {
@@ -58,8 +59,8 @@ export default function WorkflowTimeline() {
               <span className="text-xs font-black uppercase tracking-[0.8em] text-fuchsia-500">System Lifecycle</span>
             </div>
             <h2 className="text-8xl md:text-[11rem] font-black tracking-tighter text-white leading-[0.8] mb-4">
-              THE <br />
-              <span className="text-transparent" style={{ WebkitTextStroke: '2px rgba(255,255,255,0.1)' }}>METHOD.</span>
+              OUR <br />
+              <span className="text-transparent" style={{ WebkitTextStroke: '2px rgba(255,255,255,0.1)' }}>PROCESS.</span>
             </h2>
           </motion.div>
         </div>
@@ -90,13 +91,16 @@ export default function WorkflowTimeline() {
           <div className="relative z-10">
             <div className="mb-6 inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/5 bg-white/5 font-mono text-[10px] text-emerald-400 uppercase tracking-widest">
               <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" /> 
-              Protocol Ready
+              Pipeline Ready
             </div>
-            <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tighter mb-10">Initiate your build?</h3>
-            <button className="group relative px-12 py-5 bg-white text-black text-xs font-black uppercase tracking-[0.4em] rounded-full hover:scale-105 transition-transform active:scale-95">
-              <span className="relative z-10">Initialize Sequence</span>
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-fuchsia-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </button>
+            <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tighter mb-10">Ready to build smarter systems?</h3>
+            
+            <Link href="/book" passHref>
+              <button className="group relative px-12 py-5 bg-white text-black text-xs font-black uppercase tracking-[0.4em] rounded-full hover:scale-105 transition-transform active:scale-95 overflow-hidden">
+                <span className="relative z-10 group-hover:text-white transition-colors duration-300">Schedule a Strategy Call</span>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-fuchsia-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </button>
+            </Link>
           </div>
         </motion.div>
       </div>

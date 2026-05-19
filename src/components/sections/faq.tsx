@@ -133,13 +133,13 @@ export default function FAQ() {
           whileInView={{ opacity: 1 }}
           className="mt-24 pt-12 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-8"
         >
-          <p className="text-zinc-500 text-sm font-mono uppercase tracking-[0.2em]">
+          {/* <p className="text-zinc-500 text-sm font-mono uppercase tracking-[0.2em]">
             Detailed specs required?
-          </p>
-          <button className="relative group px-10 py-4 bg-white text-black text-xs font-black uppercase tracking-widest hover:bg-fuchsia-500 hover:text-white transition-all duration-300 rounded-none overflow-hidden">
+          </p> */}
+          {/* <button className="relative group px-10 py-4 bg-white text-black text-xs font-black uppercase tracking-widest hover:bg-fuchsia-500 hover:text-white transition-all duration-300 rounded-none overflow-hidden">
             <span className="relative z-10">Access Architect Logs</span>
             <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white/40 opacity-40 group-hover:animate-shine" />
-          </button>
+          </button> */}
         </motion.div>
       </div>
     </section>

@@ -5,27 +5,12 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FiGithub, FiTwitter, FiLinkedin, FiArrowUp, FiActivity } from "react-icons/fi";
 
-const footerLinks = [
-  {
-    title: "Intelligence",
-    links: ["Neural Audits", "LLM Integration", "Agentic Workflows", "SaaS Core"],
-  },
-  {
-    title: "Company",
-    links: ["Process", "Our Stack", "Case Studies", "Blog"],
-  },
-  {
-    title: "Legal",
-    links: ["Privacy Protocol", "Service Terms", "Security Documentation"],
-  },
-];
-
 export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
     <footer className="relative border-t border-white/5 bg-[#020202] px-6 pt-32 pb-12 overflow-hidden">
-      {/* Background Decorative Gradient - Matching logo spectrum */}
+      {/* Background Decorative Gradient */}
       <div className="absolute top-0 left-1/4 h-[500px] w-[500px] rounded-full bg-[#FF0080]/5 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 h-[500px] w-[500px] rounded-full bg-[#00DFD8]/5 blur-[120px] pointer-events-none" />
 
@@ -33,7 +18,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-8">
           
           {/* Brand Block */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-7">
             <Link href="/" className="group inline-block">
               <div className="flex items-center gap-4">
                 <div className="relative h-12 w-12 transition-transform duration-500 group-hover:rotate-12">
@@ -50,9 +35,9 @@ export default function Footer() {
               </div>
             </Link>
             
-            <p className="mt-8 max-w-sm text-sm leading-relaxed text-zinc-500 font-medium">
-              Architecting autonomous neural systems for the next generation of global enterprise. 
-              Engineering digital fabric that scales with human intent.
+            <p className="mt-8 max-w-md text-sm leading-relaxed text-zinc-500 font-medium">
+              We design and build powerful automation systems and custom AI tools. 
+              Our software streamlines workflows and scales smoothly with your business goals.
             </p>
             
             <div className="mt-10 flex gap-3">
@@ -67,25 +52,26 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Links Grid */}
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-7">
-            {footerLinks.map((section) => (
-              <div key={section.title}>
-                <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 mb-8 flex items-center gap-2">
-                  <span className="h-[1px] w-4 bg-gradient-to-r from-[#FF0080] to-[#00DFD8]" />
-                  {section.title}
-                </h3>
-                <ul className="space-y-5">
-                  {section.links.map((link) => (
-                    <li key={link}>
-                      <Link href="#" className="text-xs font-bold text-zinc-600 transition-all hover:text-white hover:translate-x-1 inline-block">
-                        {link}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          {/* Clean Links Grid */}
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-5">
+            <div>
+              <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 mb-8 flex items-center gap-2">
+                <span className="h-[1px] w-4 bg-gradient-to-r from-[#FF0080] to-[#00DFD8]" />
+                Explore
+              </h3>
+              <ul className="space-y-5">
+                <li>
+                  <Link href="/project" className="text-xs font-bold text-zinc-600 transition-all hover:text-white hover:translate-x-1 inline-block">
+                    Our Work
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/pricing" className="text-xs font-bold text-zinc-600 transition-all hover:text-white hover:translate-x-1 inline-block">
+                    Pricing Plans
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -102,7 +88,7 @@ export default function Footer() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[#00DFD8]"></span>
               </div>
               <span className="text-[9px] font-mono text-[#00DFD8] uppercase tracking-widest">
-                System Status: Optimized
+                Status: Operational
               </span>
             </div>
           </div>
@@ -112,7 +98,7 @@ export default function Footer() {
             className="group flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 transition-all hover:text-white"
           >
             <FiActivity className="text-[#FF0080]" />
-            Return to Nexus <FiArrowUp className="transition-transform group-hover:-translate-y-1" />
+            Back to Top <FiArrowUp className="transition-transform group-hover:-translate-y-1" />
           </button>
         </div>
 
@@ -123,7 +109,7 @@ export default function Footer() {
             whileInView={{ y: 0, opacity: 1 }}
             className="block text-[clamp(2rem,18vw,14rem)] font-black leading-none text-white/[0.01] tracking-tighter"
           >
-            ARCHITECT
+            BUILD
           </motion.span>
         </div>
       </div>

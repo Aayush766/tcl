@@ -5,12 +5,13 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
+// Updated links layout
 const links = [
   "Services",
-  "Portfolio",
-  "AI Solutions",
+  "Project",
+  // "AI Solutions",
   "Pricing",
-  "Blog",
+  "About",
 ];
 
 export default function Navbar() {
@@ -51,9 +52,6 @@ export default function Navbar() {
              <span className="text-xs font-black tracking-[0.2em] text-white uppercase leading-none">
                The Cyber Loom
              </span>
-             {/* <span className="text-[7px] font-mono tracking-[0.4em] text-zinc-500 uppercase mt-1">
-                Neural_Interface_v2
-             </span> */}
           </div>
         </Link>
 
