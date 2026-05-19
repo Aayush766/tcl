@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiArrowRight, FiShield, FiZap, FiActivity, FiLayers } from "react-icons/fi";
+import { FiArrowRight, FiShield, FiZap, FiActivity, FiLayers, FiCheck } from "react-icons/fi";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -63,7 +64,7 @@ export default function Hero() {
               className="inline-flex items-center gap-3 mb-10 w-fit rounded-none border-l-2 border-fuchsia-500 bg-gradient-to-r from-fuchsia-500/10 to-transparent px-4 py-2"
             >
               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white">
-                Core Protocol v4.0.2
+                AI-First Execution Layer
               </span>
             </motion.div>
 
@@ -71,11 +72,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-7xl font-black leading-[0.8] tracking-tighter text-white md:text-[130px]"
+              className="text-4xl font-black leading-[1.1] tracking-tighter text-white md:text-[64px] uppercase"
             >
-              THE <br />
-              <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-br from-[#ff0099] via-[#8a2be2] to-[#00dbde] pb-4">
-                CYBER LOOM
+              Engineering AI-Powered <br />
+              <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-br from-[#ff0099] via-[#8a2be2] to-[#00dbde] pb-2 leading-none">
+                Systems for Growth
               </span>
             </motion.h1>
 
@@ -83,28 +84,32 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="mt-6 max-w-xl text-lg leading-relaxed text-zinc-400 font-light md:text-2xl"
+              className="mt-6 max-w-xl text-base leading-relaxed text-zinc-400 font-medium md:text-lg"
             >
-              Engineering the <span className="text-white">connective tissue</span> of the digital age. We weave intelligence into infrastructure.
+              THE CYBERLOOM helps businesses scale through AI automation, modern digital products, high-performance websites, and scalable software infrastructure built to increase efficiency and support growth.
             </motion.p>
 
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="mt-12 flex flex-wrap gap-8"
+              className="mt-12 flex flex-wrap items-center gap-8"
             >
-              {/* <button className="group relative h-16 w-64 overflow-hidden border border-fuchsia-500/20 bg-black transition-all hover:border-fuchsia-500">
-                <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#ff0099] to-[#00dbde] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <span className="relative z-10 flex items-center justify-center gap-3 text-sm font-black uppercase tracking-widest text-white group-hover:text-black transition-colors">
-                  Enter The Fabric <FiArrowRight className="text-xl" />
-                </span>
-              </button> */}
+              <Link href="/book" passHref>
+                <button className="group relative h-16 w-64 overflow-hidden border border-fuchsia-500/20 bg-black transition-all hover:border-fuchsia-500">
+                  <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#ff0099] to-[#00dbde] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <span className="relative z-10 flex items-center justify-center gap-3 text-xs font-black uppercase tracking-widest text-white group-hover:text-black transition-colors">
+                    Book Free Call <FiArrowRight className="text-xl" />
+                  </span>
+                </button>
+              </Link>
               
-              <button className="group flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-zinc-500 hover:text-fuchsia-400 transition-colors">
-                <span className="h-0.5 w-12 bg-zinc-800 transition-all group-hover:w-16 group-hover:bg-fuchsia-500" />
-                Data Sheets
-              </button>
+              <Link href="/services" passHref>
+                <button className="group flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-zinc-500 hover:text-fuchsia-400 transition-colors">
+                  <span className="h-0.5 w-12 bg-zinc-800 transition-all group-hover:w-16 group-hover:bg-fuchsia-500" />
+                  Explore Services
+                </button>
+              </Link>
             </motion.div>
           </div>
 
@@ -133,9 +138,9 @@ export default function Hero() {
               <motion.div animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute inset-0 rounded-full border border-dashed border-zinc-800" />
               <motion.div animate={{ rotate: -360 }} transition={{ duration: 30, repeat: Infinity, ease: "linear" }} className="absolute inset-20 rounded-full border border-fuchsia-500/10" />
 
-              <FloatingNode icon={<FiShield />} delay={0} top="-5%" left="20%" label="Armored" color="#ff0099" />
-              <FloatingNode icon={<FiZap />} delay={1.5} bottom="5%" right="10%" label="Ultra-Scale" color="#00dbde" />
-              <FloatingNode icon={<FiActivity />} delay={0.8} top="40%" right="-15%" label="Sync-Pulse" color="#8a2be2" />
+              <FloatingNode icon={<FiShield />} delay={0} top="-5%" left="20%" label="Scalable Tech" color="#ff0099" />
+              <FloatingNode icon={<FiZap />} delay={1.5} bottom="5%" right="10%" label="AI Automation" color="#00dbde" />
+              <FloatingNode icon={<FiActivity />} delay={0.8} top="40%" right="-15%" label="Modern UX" color="#8a2be2" />
             </div>
           </div>
         </div>
@@ -143,15 +148,15 @@ export default function Hero() {
 
       {/* --- DASHBOARD STRIP --- */}
       <div className="absolute bottom-0 w-full bg-gradient-to-t from-fuchsia-500/5 to-transparent border-t border-white/5 py-10 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-10 px-6">
-          {/* <div className="grid grid-cols-3 gap-20">
-            <Metric label="Throughput" value="4.2 PB/s" color="#ff0099" />
-            <Metric label="Loom Nodes" value="12,402" color="#8a2be2" />
-            <Metric label="Sync Rate" value="99.999%" color="#00dbde" />
+        <div className="mx-auto flex max-w-7xl flex-wrap justify-between items-center gap-10 px-6">
+          {/* <div className="flex flex-wrap gap-x-12 gap-y-4">
+            <Metric label="Architecture" value="Scalable" color="#ff0099" />
+            <Metric label="Development" value="Full-Stack" color="#8a2be2" />
+            <Metric label="Systems" value="High-Perf" color="#00dbde" />
           </div> */}
           
           <div className="flex flex-col items-end gap-2">
-            <span className="text-[10px] font-black uppercase tracking-tighter text-zinc-500">Fabric Density</span>
+            {/* <span className="text-[10px] font-black uppercase tracking-tighter text-zinc-500">System Activity</span> */}
             <div className="flex gap-1">
               {[...Array(20)].map((_, i) => (
                 <motion.div 
@@ -186,17 +191,11 @@ function FloatingNode({ icon, top, bottom, left, right, delay, label, color }: a
 
 function Metric({ label, value, color }: { label: string, value: string, color: string }) {
   return (
-    <div className="flex flex-col gap-1">
-      <p className="text-[10px] font-black uppercase tracking-widest text-zinc-600">{label}</p>
-      <p className="text-2xl font-mono font-black text-white" style={{ textShadow: `0 0 20px ${color}40` }}>{value}</p>
-      <div className="h-0.5 w-full bg-zinc-900 overflow-hidden">
-        <motion.div 
-          initial={{ x: "-100%" }}
-          animate={{ x: "0%" }}
-          transition={{ duration: 2, ease: "easeOut" }}
-          className="h-full" 
-          style={{ backgroundColor: color }} 
-        />
+    <div className="flex items-center gap-3">
+      <FiCheck style={{ color }} className="text-sm" />
+      <div className="flex flex-col">
+        <p className="text-[9px] font-black uppercase tracking-widest text-zinc-600 leading-none mb-1">{label}</p>
+        <p className="text-sm font-black text-white tracking-wide uppercase leading-none">{value}</p>
       </div>
     </div>
   );
