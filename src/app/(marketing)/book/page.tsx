@@ -40,42 +40,58 @@ export default function BookStrategyCall() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setLoading(true);
 
-    try {
-      /* 
-        DEVELOPER NOTE: Replace the URL below with your preferred endpoint:
-        - Formspree: https://formspree.io/f/your_form_id
-        - FormSubmit: https://formsubmit.co/ajax/your_email@domain.com
-        - n8n / Zapier Webhook: https://primary-production-webhook-url...
-      */
-      const response = await fetch("https://formsubmit.co/ajax/your_email@domain.com", {
+  try {
+    await fetch(
+      "https://script.google.com/macros/s/AKfycbyezRdWieXa0SVS5hjGNAFvfCQzqpMAuPO1qBnrZ3OHSFGMr8ljteBOIjhSPSpVsVly/exec",
+      {
         method: "POST",
-        headers: { 
+        mode: "no-cors",
+        headers: {
           "Content-Type": "application/json",
-          "Accept": "application/json"
         },
         body: JSON.stringify({
-          ...formData,
-          services: formData.services.join(", ") // Formats array cleanly for email/sheets
+          timestamp: new Date().toISOString(),
+          fullName: formData.fullName,
+          companyName: formData.companyName,
+          email: formData.email,
+          phone: formData.phone,
+          businessType: formData.businessType,
+          services: formData.services.join(", "),
+          biggestChallenge: formData.biggestChallenge,
+          budget: formData.budget,
+          timeline: formData.timeline,
+          projectDetails: formData.projectDetails
         }),
-      });
-
-      if (response.ok) {
-        setSubmitted(true);
-      } else {
-        alert("Something went wrong. Please try again or email us directly.");
       }
-    } catch (error) {
-      console.error("Form error:", error);
-      alert("Submission error. Please check your network connection.");
-    } finally {
-      setLoading(false);
-    }
-  };
+    );
 
+    setSubmitted(true);
+
+    // Optional Reset
+    setFormData({
+      fullName: "",
+      companyName: "",
+      email: "",
+      phone: "",
+      businessType: "",
+      services: [],
+      biggestChallenge: "",
+      budget: "",
+      timeline: "",
+      projectDetails: ""
+    });
+
+  } catch (error) {
+    console.error("Form error:", error);
+    alert("Something went wrong.");
+  } finally {
+    setLoading(false);
+  }
+};
   return (
     <main className="min-h-screen bg-[#020202] text-white pt-32 pb-24 px-4 sm:px-6 relative overflow-hidden">
       {/* Decorative Brand Glows */}

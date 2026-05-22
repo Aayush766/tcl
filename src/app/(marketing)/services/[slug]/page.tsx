@@ -24,6 +24,8 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
     description: service.seo.description,
     openGraph: {
       title: service.seo.title,
+      url: `https://thecyberloom.com/services/${resolvedParams.slug}`,
+  siteName: "The Cyber Loom",
       description: service.seo.description,
       type: "website",
     }
