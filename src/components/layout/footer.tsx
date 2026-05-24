@@ -288,12 +288,269 @@ export default function Footer() {
 
               <div className="relative z-10">
 
-                <h2 className="bg-gradient-to-r from-[#FF0080] to-[#00DFD8] bg-clip-text text-4xl font-black uppercase tracking-tight text-transparent">
-                  {activeModal === "privacy" && "Privacy Policy"}
-                  {activeModal === "terms" && "Terms & Conditions"}
-                  {activeModal === "refund" && "Refund Policy"}
-                </h2>
+                {/* Heading */}
+                <div className="mb-10">
 
+                  <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400">
+                    CYBERLOOM LEGAL
+                  </span>
+
+                  <h2 className="bg-gradient-to-r from-[#FF0080] to-[#00DFD8] bg-clip-text text-4xl font-black uppercase tracking-tight text-transparent">
+                    {activeModal === "privacy" && "Privacy Policy"}
+                    {activeModal === "terms" && "Terms & Conditions"}
+                    {activeModal === "refund" && "Refund Policy"}
+                  </h2>
+
+                  <p className="mt-4 text-sm text-zinc-500">
+                    Last Updated — May 2026
+                  </p>
+
+                </div>
+
+                {/* CONTENT */}
+                <div className="space-y-8 text-sm leading-8 text-zinc-400">
+
+                  {/* PRIVACY POLICY */}
+                  {activeModal === "privacy" && (
+                    <>
+
+                      <section>
+                        <h3 className="mb-3 text-lg font-bold text-white">
+                          1. Information Collection
+                        </h3>
+
+                        <p>
+                          CyberLoom may collect personal information including your
+                          name, email address, phone number, organization details,
+                          project requirements, communication preferences, browser
+                          metadata, device information, and analytics data to
+                          improve platform functionality and client experiences.
+                        </p>
+                      </section>
+
+                      <section>
+                        <h3 className="mb-3 text-lg font-bold text-white">
+                          2. Usage of Information
+                        </h3>
+
+                        <p>
+                          Information collected is used to provide digital services,
+                          improve automation systems, optimize business workflows,
+                          communicate project updates, enhance user experiences,
+                          process inquiries, and strengthen security infrastructure.
+                        </p>
+                      </section>
+
+                      <section>
+                        <h3 className="mb-3 text-lg font-bold text-white">
+                          3. Cookies & Analytics
+                        </h3>
+
+                        <p>
+                          We use cookies, tracking technologies, and analytics tools
+                          to understand visitor behavior, improve navigation,
+                          optimize conversion performance, and personalize digital
+                          experiences. Users may disable cookies through browser
+                          settings.
+                        </p>
+                      </section>
+
+                      <section>
+                        <h3 className="mb-3 text-lg font-bold text-white">
+                          4. Data Protection
+                        </h3>
+
+                        <p>
+                          CyberLoom implements industry-standard security practices
+                          to protect user information against unauthorized access,
+                          misuse, or disclosure. While we strive to maintain secure
+                          systems, no digital platform guarantees complete security.
+                        </p>
+                      </section>
+
+                      <section>
+                        <h3 className="mb-3 text-lg font-bold text-white">
+                          5. Third-Party Services
+                        </h3>
+
+                        <p>
+                          Some services may integrate third-party providers such as
+                          hosting platforms, payment gateways, analytics services,
+                          or communication tools. These providers maintain separate
+                          privacy policies and operational standards.
+                        </p>
+                      </section>
+
+                      <section>
+                        <h3 className="mb-3 text-lg font-bold text-white">
+                          6. User Rights
+                        </h3>
+
+                        <p>
+                          Users may request access, modification, deletion, or
+                          clarification regarding personal data stored within our
+                          systems by contacting CyberLoom directly.
+                        </p>
+                      </section>
+
+                    </>
+                  )}
+
+                  {/* TERMS */}
+                  {activeModal === "terms" && (
+                    <>
+
+                      <section>
+                        <h3 className="mb-3 text-lg font-bold text-white">
+                          1. Acceptance of Terms
+                        </h3>
+
+                        <p>
+                          By accessing or using CyberLoom services, platforms, or
+                          digital systems, users acknowledge and agree to comply
+                          with all terms, policies, and applicable regulations.
+                        </p>
+                      </section>
+
+                      <section>
+                        <h3 className="mb-3 text-lg font-bold text-white">
+                          2. Intellectual Property
+                        </h3>
+
+                        <p>
+                          All branding, source code, UI designs, automation systems,
+                          graphics, visual assets, and digital materials remain the
+                          intellectual property of CyberLoom unless explicitly
+                          transferred through written agreements.
+                        </p>
+                      </section>
+
+                      <section>
+                        <h3 className="mb-3 text-lg font-bold text-white">
+                          3. Service Scope
+                        </h3>
+
+                        <p>
+                          Project timelines, deliverables, revisions, pricing,
+                          integrations, and deployment conditions are defined
+                          individually through proposals, invoices, or signed
+                          agreements before project execution begins.
+                        </p>
+                      </section>
+
+                      <section>
+                        <h3 className="mb-3 text-lg font-bold text-white">
+                          4. Restrictions
+                        </h3>
+
+                        <p>
+                          Users agree not to misuse the platform, attempt
+                          unauthorized access, distribute malicious software,
+                          duplicate protected materials, interfere with services,
+                          or engage in unlawful digital activities.
+                        </p>
+                      </section>
+
+                      <section>
+                        <h3 className="mb-3 text-lg font-bold text-white">
+                          5. Limitation of Liability
+                        </h3>
+
+                        <p>
+                          CyberLoom shall not be held responsible for indirect
+                          damages, operational interruptions, security breaches,
+                          third-party failures, financial losses, or external
+                          technical issues beyond our reasonable control.
+                        </p>
+                      </section>
+
+                      <section>
+                        <h3 className="mb-3 text-lg font-bold text-white">
+                          6. Policy Modifications
+                        </h3>
+
+                        <p>
+                          CyberLoom reserves the right to modify policies, pricing,
+                          technical systems, or operational structures at any time.
+                          Continued usage of the platform constitutes acceptance of
+                          updated terms and policies.
+                        </p>
+                      </section>
+
+                    </>
+                  )}
+
+                  {/* REFUND POLICY */}
+                  {activeModal === "refund" && (
+                    <>
+
+                      <section>
+                        <h3 className="mb-3 text-lg font-bold text-white">
+                          1. Refund Eligibility
+                        </h3>
+
+                        <p>
+                          Refund requests are evaluated individually depending on
+                          project progress, milestone completion, consultation
+                          hours, deployed systems, and service usage status.
+                        </p>
+                      </section>
+
+                      <section>
+                        <h3 className="mb-3 text-lg font-bold text-white">
+                          2. Non-Refundable Services
+                        </h3>
+
+                        <p>
+                          Payments for completed development work, AI integrations,
+                          design systems, automation setup, deployment pipelines,
+                          consultations, or strategy sessions are generally
+                          non-refundable after project initiation.
+                        </p>
+                      </section>
+
+                      <section>
+                        <h3 className="mb-3 text-lg font-bold text-white">
+                          3. Cancellation Policy
+                        </h3>
+
+                        <p>
+                          Clients may request project cancellation through official
+                          communication channels. Any completed work prior to
+                          cancellation remains chargeable according to agreed
+                          project terms.
+                        </p>
+                      </section>
+
+                      <section>
+                        <h3 className="mb-3 text-lg font-bold text-white">
+                          4. Processing Timeline
+                        </h3>
+
+                        <p>
+                          Approved refunds are typically processed within 7–14
+                          business days depending on payment processors, banking
+                          infrastructure, and regional transaction policies.
+                        </p>
+                      </section>
+
+                      <section>
+                        <h3 className="mb-3 text-lg font-bold text-white">
+                          5. Contact & Billing Support
+                        </h3>
+
+                        <p>
+                          For billing concerns, payment disputes, or refund-related
+                          inquiries, contact our support team at{" "}
+                          <span className="text-[#00DFD8]">
+                            info@thecyberloom.com
+                          </span>
+                        </p>
+                      </section>
+
+                    </>
+                  )}
+                </div>
               </div>
             </motion.div>
           </motion.div>
