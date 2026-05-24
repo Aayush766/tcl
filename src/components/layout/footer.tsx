@@ -5,14 +5,14 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import {
-  FiGithub,
-  FiTwitter,
+  FiInstagram,
   FiLinkedin,
   FiArrowUp,
   FiActivity,
   FiX,
 } from "react-icons/fi";
 
+import { FaWhatsapp } from "react-icons/fa";
 export default function Footer() {
   const [activeModal, setActiveModal] = useState<
     "privacy" | "terms" | "refund" | null
@@ -61,9 +61,9 @@ export default function Footer() {
                     />
                   </div>
 
-                  <h2 className="bg-gradient-to-r from-[#FF0080] to-[#00DFD8] bg-clip-text text-3xl font-black uppercase italic tracking-tighter text-transparent">
-                    CyberLoom
-                  </h2>
+                  <h2 className="bg-gradient-to-r from-[#FF0080] to-[#00DFD8] bg-clip-text text-3xl font-black uppercase italic tracking-tight text-transparent pr-1">
+  CyberLoom
+</h2>
                 </div>
               </Link>
 
@@ -74,19 +74,48 @@ export default function Footer() {
               </p>
 
               {/* Social Icons */}
-              <div className="mt-10 flex gap-3">
-                {[FiGithub, FiTwitter, FiLinkedin].map((Icon, i) => (
-                  <button
-                    key={i}
-                    className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-400 transition-all hover:border-[#00DFD8]/50"
-                  >
-                    <Icon
-                      size={18}
-                      className="transition-colors group-hover:text-[#00DFD8]"
-                    />
-                  </button>
-                ))}
-              </div>
+<div className="mt-10 flex gap-3">
+
+  {/* Instagram */}
+  <a
+    href="https://instagram.com/yourusername"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-400 transition-all hover:border-[#00DFD8]/50"
+  >
+    <FiInstagram
+      size={18}
+      className="transition-colors group-hover:text-[#00DFD8]"
+    />
+  </a>
+
+  {/* WhatsApp */}
+  <a
+    href="https://wa.me/919999999999"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-400 transition-all hover:border-[#00DFD8]/50"
+  >
+    <FaWhatsapp
+      size={18}
+      className="transition-colors group-hover:text-[#00DFD8]"
+    />
+  </a>
+
+  {/* LinkedIn */}
+  <a
+    href="https://linkedin.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-400 transition-all hover:border-[#00DFD8]/50"
+  >
+    <FiLinkedin
+      size={18}
+      className="transition-colors group-hover:text-[#00DFD8]"
+    />
+  </a>
+
+</div>
             </div>
 
             {/* Footer Links */}
@@ -165,17 +194,17 @@ export default function Footer() {
 
                 <ul className="space-y-5">
                   <li>
-                    <Link
+                    {/* <Link
                       href="/contact"
                       className="inline-block text-xs font-bold text-zinc-600 transition-all hover:translate-x-1 hover:text-white"
                     >
                       Contact Us
-                    </Link>
+                    </Link> */}
                   </li>
 
                   <li>
                     <a
-                      href="mailto:contact@thecyberloom.com"
+                      href="mailto:info@thecyberloom.com"
                       className="inline-block text-xs font-bold text-zinc-600 transition-all hover:translate-x-1 hover:text-white"
                     >
                       contact@thecyberloom.com
@@ -458,9 +487,9 @@ export default function Footer() {
                       </section>
 
                       <section>
-                        <h3 className="mb-3 text-lg font-bold text-white">
+                        {/* <h3 className="mb-3 text-lg font-bold text-white">
                           5. Contact Support
-                        </h3>
+                        </h3> */}
                         <p>
                           For billing concerns, refund requests, or payment
                           assistance, contact us at
