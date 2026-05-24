@@ -1,35 +1,35 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { FiExternalLink, FiServer, FiLayers } from "react-icons/fi";
 import Navbar from "../../../components/layout/navbar";
 import Footer from "@/components/layout/footer";
 
+
 const projects = {
   lms: [
     {
       title: "Lurnex LMS Portal",
+      initials: "LX",
       sub: "Next.js • Node.js • Live Mentorship",
       link: "https://lms.lurnex.me",
-      image: "/projects/lurnex-lms.png",
       desc: "An enterprise-grade Learning Management System featuring synchronous Zoom class streams, automated deployment architecture, intuitive dashboard states, and optimized training pipelines.",
       tags: ["Zoom Integration", "MERN Stack", "Automated Onboarding"],
     },
     {
       title: "JRtinker Tinkering Lab",
+      initials: "JR",
       sub: "React.js • Tailwind CSS • MongoDB",
       link: "https://lms.jrtinker.com",
-      image: "/projects/jrtinker-lms.png",
       desc: "A custom activity ecosystem tailored for interactive tech labs. Features complex timetable systems, dynamic trainer tracking matrices, and comprehensive digital activity logs.",
       tags: ["Timetable Engine", "Activity Logs", "Trainer Matrix"],
     },
     {
       title: "GeniusKidz AI Learning",
+      initials: "GK",
       sub: "Next.js • FastAPI • Web Analytics",
       link: "https://lms.geniuskidz.ai",
-      image: "/projects/geniuskidz-lms.png",
       desc: "The learning terminal powering automated AI, Robotics, and IoT training modules for K-12 systems aligned directly with innovative cognitive education guidelines.",
       tags: ["AI Coding Labs", "IoT Modules", "Cognitive Dashboard"],
     },
@@ -38,22 +38,23 @@ const projects = {
   websites: [
     {
       title: "Lurnex Platform",
+      initials: "LN",
       sub: "Business Architecture Engine",
       link: "https://lurnex.me",
-      image: "/projects/lurnex-web.png",
       desc: "The primary digital portal driving creative management strategies, strategic coaching ecosystems, and comprehensive brand roadmaps for global modern enterprises.",
       tags: ["Brand Roadmap", "Coaching Hub", "High Conversion"],
     },
     {
       title: "JRtinker Lab Portal",
+      initials: "JT",
       sub: "STEM & Robotics Initiative",
       link: "https://jrtinker.com",
-      image: "/projects/jrtinker-web.png",
       desc: "An elite landing platform created to expose young tech enthusiasts to interactive robotics setups, real-time AI concepts, and experiential structural experiments.",
       tags: ["STEM Hub", "Robotics Interface", "Interactive UX"],
     },
     {
       title: "Tibetan Handicrafts & Jewellery",
+      initials: "TH",
       sub: "Luxury E-Commerce Terminal",
       link: "https://tibetandhammashop.com",
       image: "/projects/tibetan-web.png",
@@ -62,9 +63,9 @@ const projects = {
     },
     {
       title: "GeniusKidz Technologies",
+      initials: "GT",
       sub: "AI Lab Integration Platform",
       link: "https://geniuskidz.ai",
-      image: "/projects/geniuskidz-web.png",
       desc: "The main infrastructure platform mapping nationwide installation pipelines for AI coding nodes and hardware laboratories across educational networks.",
       tags: ["NEP 2020", "Hardware Labs", "Scale Engine"],
     },

@@ -37,8 +37,36 @@ export default function Footer() {
       window.removeEventListener("keydown", handleEscape);
     };
   }, []);
+  const [activeModal, setActiveModal] = useState<
+    "privacy" | "terms" | "refund" | null
+  >(null);
+
+  const scrollToTop = () =>
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+  const closeModal = () => setActiveModal(null);
+
+  // ESC KEY CLOSE
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    };
+
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, []);
 
   return (
+    <>
+      <footer className="relative overflow-hidden border-t border-white/5 bg-[#020202] px-6 pt-32 pb-12">
+        {/* Background Decorative Gradient */}
+        <div className="pointer-events-none absolute top-0 left-1/4 h-[500px] w-[500px] rounded-full bg-[#FF0080]/5 blur-[120px]" />
+        <div className="pointer-events-none absolute right-1/4 bottom-0 h-[500px] w-[500px] rounded-full bg-[#00DFD8]/5 blur-[120px]" />
     <>
       <footer className="relative overflow-hidden border-t border-white/5 bg-[#020202] px-6 pt-32 pb-12">
         {/* Background Decorative Gradient */}
@@ -233,7 +261,37 @@ export default function Footer() {
                 </span>
               </div>
             </div>
+          {/* Bottom Bar */}
+          <div className="mt-32 flex flex-col items-center justify-between gap-8 border-t border-white/5 pt-12 md:flex-row">
+            <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-10">
+              <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-zinc-700">
+                © 2026 THE CYBER LOOM // ALL RIGHTS RESERVED
+              </span>
 
+              <div className="flex items-center gap-3 rounded-full border border-white/5 bg-zinc-900/40 px-4 py-2">
+                <div className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00DFD8] opacity-20"></span>
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#00DFD8]"></span>
+                </div>
+
+                <span className="text-[9px] font-mono uppercase tracking-widest text-[#00DFD8]">
+                  Status: Operational
+                </span>
+              </div>
+            </div>
+
+            {/* Back To Top */}
+            <button
+              onClick={scrollToTop}
+              className="group flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 transition-all hover:text-white"
+            >
+              <FiActivity className="text-[#FF0080]" />
+
+              Back to Top
+
+              <FiArrowUp className="transition-transform group-hover:-translate-y-1" />
+            </button>
+          </div>
             {/* Back To Top */}
             <button
               onClick={scrollToTop}
