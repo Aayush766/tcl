@@ -1,34 +1,34 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { FiExternalLink, FiServer, FiLayers } from "react-icons/fi";
 import Navbar from "../../../components/layout/navbar"; // Adjust this path if your Navbar is elsewhere
 import Footer from "@/components/layout/footer";
+
 const projects = {
   lms: [
     {
       title: "Lurnex LMS Portal",
+      initials: "LX",
       sub: "Next.js • Node.js • Live Mentorship",
       link: "https://lms.lurnex.me",
-      image: "/projects/lurnex-lms.png",
       desc: "An enterprise-grade Learning Management System featuring synchronous Zoom class streams, automated deployment architecture, intuitive dashboard states, and optimized training pipelines.",
       tags: ["Zoom Integration", "MERN Stack", "Automated Onboarding"]
     },
     {
       title: "JRtinker Tinkering Lab",
+      initials: "JR",
       sub: "React.js • Tailwind CSS • MongoDB",
       link: "https://lms.jrtinker.com",
-      image: "/projects/jrtinker-lms.png",
       desc: "A custom activity ecosystem tailored for interactive tech labs. Features complex timetable systems, dynamic trainer tracking matrices, and comprehensive digital activity logs.",
       tags: ["Timetable Engine", "Activity Logs", "Trainer Matrix"]
     },
     {
       title: "GeniusKidz AI Learning",
+      initials: "GK",
       sub: "Next.js • FastAPI • Web Analytics",
       link: "https://lms.geniuskidz.ai",
-      image: "/projects/geniuskidz-lms.png",
       desc: "The learning terminal powering automated AI, Robotics, and IoT training modules for K-12 systems aligned directly with innovative cognitive education guidelines.",
       tags: ["AI Coding Labs", "IoT Modules", "Cognitive Dashboard"]
     }
@@ -36,40 +36,39 @@ const projects = {
   websites: [
     {
       title: "Lurnex Platform",
+      initials: "LN",
       sub: "Business Architecture Engine",
       link: "https://lurnex.me",
-      image: "/projects/lurnex-web.png",
       desc: "The primary digital portal driving creative management strategies, strategic coaching ecosystems, and comprehensive brand roadmaps for global modern enterprises.",
       tags: ["Brand Roadmap", "Coaching Hub", "High Conversion"]
     },
     {
       title: "JRtinker Lab Portal",
+      initials: "JT",
       sub: "STEM & Robotics Initiative",
       link: "https://jrtinker.com",
-      image: "/projects/jrtinker-web.png",
       desc: "An elite landing platform created to expose young tech enthusiasts to interactive robotics setups, real-time AI concepts, and experiential structural experiments.",
       tags: ["STEM Hub", "Robotics Interface", "Interactive UX"]
     },
     {
       title: "Tibetan Handicrafts & Jewellery",
+      initials: "TH",
       sub: "Luxury E-Commerce Terminal",
       link: "https://tibetandhamma.com",
-      image: "/projects/tibetan-web.png",
       desc: "A premium Next.js boutique design featuring curated image galleries, fluid interactions, and deep immersive design paths tailored for luxury art collectibles.",
       tags: ["Boutique UI", "Immersive Gallery", "Fluid Animations"]
     },
     {
       title: "GeniusKidz Technologies",
+      initials: "GT",
       sub: "AI Lab Integration Platform",
       link: "https://geniuskidz.ai",
-      image: "/projects/geniuskidz-web.png",
       desc: "The main infrastructure platform mapping nationwide installation pipelines for AI coding nodes and hardware laboratories across educational networks.",
       tags: ["NEP 2020", "Hardware Labs", "Scale Engine"]
     }
   ]
 };
 
-// Typed explicitly to avoid target alignment issues
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -154,17 +153,16 @@ export default function ProjectPage() {
                   {/* Premium Hover Light */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-gradient-to-r from-transparent via-[#ff0080]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   
-                  {/* Screenshot Container */}
-                  <div className="relative w-full h-48 rounded-2xl overflow-hidden border border-white/5 mb-6 bg-zinc-900/60 flex items-center justify-center">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover opacity-75 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700 ease-in-out"
-                      sizes="(max-w-7xl) 33vw"
-                    />
-                    {/* Glass Overlay on Hover */}
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+                  {/* TEXT THUMBNAIL PLACEHOLDER */}
+                  <div className="relative w-full h-48 rounded-2xl overflow-hidden border border-white/5 mb-6 bg-zinc-900/40 flex flex-col items-center justify-center p-6 text-center select-none group-hover:bg-zinc-900/60 transition-colors duration-500">
+                    {/* Micro dot matrix inside thumbnail */}
+                    <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#ffffff 0.5px, transparent 0.5px)', backgroundSize: '10px 10px' }} />
+                    <div className="relative z-10 text-4xl font-mono font-black tracking-widest text-zinc-700 group-hover:text-[#ff0080]/40 transition-colors duration-500 mb-2">
+                      {project.initials}
+                    </div>
+                    <div className="relative z-10 text-[9px] font-mono tracking-[0.2em] uppercase text-zinc-500 group-hover:text-zinc-400 transition-colors duration-500">
+                      System_Node // 0{idx + 1}
+                    </div>
                   </div>
 
                   <div className="flex justify-between items-start mb-2">
@@ -231,16 +229,15 @@ export default function ProjectPage() {
                 {/* Premium Hover Light */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-[1px] bg-gradient-to-r from-transparent via-[#00DFD8]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-                {/* Screenshot Container */}
-                <div className="relative w-full md:w-2/5 h-48 md:h-full min-h-[180px] rounded-2xl overflow-hidden border border-white/5 bg-zinc-900 flex-shrink-0">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover opacity-70 group-hover:opacity-100 group-hover:scale-[1.04] transition-all duration-700 ease-in-out"
-                    sizes="(max-w-7xl) 40vw"
-                  />
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+                {/* TEXT THUMBNAIL PLACEHOLDER */}
+                <div className="relative w-full md:w-2/5 h-48 md:h-full min-h-[180px] rounded-2xl overflow-hidden border border-white/5 bg-zinc-900/40 flex-shrink-0 flex flex-col items-center justify-center p-4 text-center select-none group-hover:bg-zinc-900/60 transition-colors duration-500">
+                  <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#ffffff 0.5px, transparent 0.5px)', backgroundSize: '10px 10px' }} />
+                  <div className="relative z-10 text-4xl font-mono font-black tracking-widest text-zinc-700 group-hover:text-[#00DFD8]/40 transition-colors duration-500 mb-1">
+                    {project.initials}
+                  </div>
+                  <div className="relative z-10 text-[9px] font-mono tracking-[0.2em] uppercase text-zinc-500 group-hover:text-zinc-400 transition-colors duration-500">
+                    Surface_Layer // 0{idx + 1}
+                  </div>
                 </div>
 
                 <div className="flex flex-col justify-between flex-grow py-1">
