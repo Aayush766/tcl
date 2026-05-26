@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Navbar from "../../../components/layout/navbar";
 import { 
   FiZap, FiCalendar, FiCheck, FiArrowRight, 
   FiCpu, FiLayout, FiTrendingUp, FiCheckCircle, FiLoader 
@@ -94,6 +95,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 };
   return (
     <main className="min-h-screen bg-[#020202] text-white pt-32 pb-24 px-4 sm:px-6 relative overflow-hidden">
+      <Navbar />
       {/* Decorative Brand Glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[500px] w-[500px] rounded-full bg-[#FF0080]/5 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-10 h-[400px] w-[400px] rounded-full bg-[#00DFD8]/5 blur-[100px] pointer-events-none" />
