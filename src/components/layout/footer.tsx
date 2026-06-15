@@ -86,7 +86,7 @@ export default function Footer() {
 
                 {/* Instagram */}
                 <a
-                  href="https://instagram.com/yourusername"
+                  href="https://instagram.com/_thecyberloom"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-400 transition-all hover:border-[#00DFD8]/50"
@@ -99,7 +99,7 @@ export default function Footer() {
 
                 {/* WhatsApp */}
                 <a
-                  href="https://wa.me/919999999999"
+                  href="https://wa.me/918603850720"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-400 transition-all hover:border-[#00DFD8]/50"
@@ -112,7 +112,7 @@ export default function Footer() {
 
                 {/* LinkedIn */}
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/the-cyber-loom-bb6b0b40b/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-400 transition-all hover:border-[#00DFD8]/50"
@@ -141,7 +141,7 @@ export default function Footer() {
                     ["Projects", "/project"],
                     ["Pricing", "/pricing"],
                     ["About", "/about"],
-                    ["Support", "/support"],
+                    ["Contact", "/book"],
                   ].map(([label, href]) => (
                     <li key={label}>
                       <Link

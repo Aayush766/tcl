@@ -7,7 +7,7 @@ import { FiPlus, FiMinus, FiCpu, FiHash, FiActivity } from "react-icons/fi";
 const faqs = [
   {
     q: "How does the AI integration process work?",
-    a: "We begin with a neural audit to identify architectural bottlenecks. We then engineer custom LLM wrappers or automation agents that interface directly with your existing API stack, ensuring zero-latency data flow.",
+    a: "We start with a free 45-minute audit where we map out how your business currently runs. Then we build an AI system that connects directly to your existing tools — whether that's WhatsApp, your CRM, or a Google Sheet. You see the result in a live demo before we hand it over.",
     id: "N-01"
   },
   {

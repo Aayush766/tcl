@@ -10,12 +10,12 @@ import Link from "next/link";
 
 // Updated with explicit slugs matching your servicesData configuration object keys
 const services = [
-  { slug: "website-development", title: "Website Development", desc: "High-velocity, 100-score performance platforms.", icon: <FiCode />, color: "#ff0099", size: "md:col-span-2" },
-  { slug: "ai-integration", title: "AI Integration", desc: "Injecting neural intelligence into existing workflows.", icon: <FiCpu />, color: "#8a2be2", size: "md:col-span-1" },
-  { slug: "ai-automation", title: "AI Automation", desc: "Autonomous agent systems for bottlenecks.", icon: <FiZap />, color: "#00dbde", size: "md:col-span-1" },
+  { slug: "website-development", title: "Website Development", desc: "Fast websites that load in under 2 seconds and rank on Google.", icon: <FiCode />, color: "#ff0099", size: "md:col-span-2" },
+  { slug: "ai-integration", title: "AI Integration", desc: "Add AI features to your existing tools — CRM, WhatsApp, or custom software.", icon: <FiCpu />, color: "#8a2be2", size: "md:col-span-1" },
+  { slug: "ai-automation", title: "AI Automation", desc: "Automate the repetitive tasks eating your team's time every day.", icon: <FiZap />, color: "#00dbde", size: "md:col-span-1" },
   { slug: "saas-development", title: "SaaS Development", desc: "Scalable, multi-tenant digital products.", icon: <FiLayout />, color: "#ff0099", size: "md:col-span-1" },
-  { slug: "seo-optimization", title: "SEO Optimization", desc: "Algorithmic visibility for global dominance.", icon: <FiSearch />, color: "#8a2be2", size: "md:col-span-2" },
-  { slug: "ai-chatbots", title: "AI Chatbots", desc: "Conversational agents that convert instantly.", icon: <FiMessageSquare />, color: "#00dbde", size: "md:col-span-1" },
+  { slug: "seo-optimization", title: "SEO Optimization", desc: "Get found on Google. We handle the technical and content SEO.", icon: <FiSearch />, color: "#8a2be2", size: "md:col-span-2" },
+  { slug: "ai-chatbots", title: "AI Chatbots", desc: "AI chatbots that answer leads 24/7 and book calls while you sleep.", icon: <FiMessageSquare />, color: "#00dbde", size: "md:col-span-1" },
 ];
 
 export default function ServicesGrid() {
