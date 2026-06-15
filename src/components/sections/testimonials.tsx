@@ -6,28 +6,28 @@ import { FiMessageSquare, FiArrowUpRight, FiStar } from "react-icons/fi";
 
 const testimonials = [
   {
-    name: "David Parker",
-    company: "SaaSFlow",
-    tag: "AI AUTOMATION",
-    quote: "The Cyber Loom transformed our growth with AI automation and a lightning-fast platform.",
+    name: "Vipin Singh",
+    company: "LURNEX",
+    tag: "LMS",
+    quote: "Before The Cyber Loom, our student onboarding was completely manual. We'd spend hours every week managing registrations, Zoom links, and welcome emails by hand. They built us a full LMS with automated onboarding flows — now new students are set up in minutes, not hours. The platform has been running without issues since launch. Highly recommend them for any EdTech founder serious about scaling.",
   },
   {
-    name: "Sophia Miller",
-    company: "Nova Commerce",
-    tag: "CONVERSION",
-    quote: "Our conversion rate increased dramatically after working with their team. The engineering is peerless.",
+    name: "JRTINKER",
+    company: "JRTINKER Labs",
+    tag: "LMS",
+    quote: "Managing our lab timetables, trainer assignments, and activity logs was a mess before this. The Cyber Loom built us a custom portal that handles everything in one place. Our admin time dropped significantly and our trainers actually enjoy using the system. The UI is clean and the build quality is well above what we expected.",
   },
   {
-    name: "Michael Reed",
-    company: "GrowthLabs",
-    tag: "ENTERPRISE",
-    quote: "Premium execution, world-class engineering, and enterprise-level support that scales with us.",
+    name: "GeniusKidz AI",
+    company: "ASKIITIANS",
+    tag: "EdTech",
+    quote: "We needed a platform that could handle AI, Robotics, and IoT modules for K-12 students at scale. The Cyber Loom understood our vision immediately and delivered a fast, well-structured LMS that aligns with NEP 2020 guidelines. The cognitive dashboard feature is something none of our competitors have.",
   },
   {
-    name: "Elena Vance",
-    company: "Vertex AI",
-    tag: "NEURAL STACK",
-    quote: "They didn't just build a site; they engineered a competitive advantage. Highly recommended.",
+    name: "Siddharth ",
+    company: "Tibetan Handicrafts and Jewellery",
+    tag: "E-Commerce",
+    quote: "We sell handcrafted luxury collectibles and needed a website that matched the premium quality of our products. The Cyber Loom delivered an immersive, beautifully designed boutique experience. The gallery interactions and page speed are both excellent. We've had multiple customers specifically compliment the website.",
   },
 ];
 
@@ -49,7 +49,7 @@ export default function Testimonials() {
             </motion.div>
             <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-white leading-none">
               VOICES FROM <br />
-              <span className="text-zinc-800">THE LOOM.</span>
+              <span className="text-zinc-800">THE CYBER LOOM.</span>
             </h2>
           </div>
           
@@ -58,7 +58,7 @@ export default function Testimonials() {
             whileInView={{ opacity: 1 }}
             className="flex flex-col items-start md:items-end text-zinc-500 font-mono text-[10px] uppercase tracking-widest"
           >
-            <span>Verified Clients: 142</span>
+            <span>Verified Clients: 7</span>
             <span>Uptime: 99.9%</span>
           </motion.div>
         </div>

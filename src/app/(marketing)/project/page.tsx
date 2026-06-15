@@ -13,23 +13,23 @@ const projects = {
       initials: "LX",
       sub: "Next.js • Node.js • Live Mentorship",
       link: "https://lms.lurnex.me",
-      desc: "An enterprise-grade Learning Management System featuring synchronous Zoom class streams, automated deployment architecture, intuitive dashboard states, and optimized training pipelines.",
-      tags: ["Zoom Integration", "MERN Stack", "Automated Onboarding"]
+      desc: "A full-scale LMS platform for Lurnex — a coaching and mentorship startup. Includes live Zoom class integration, automated student onboarding (cut registration time from 3 hours to under 10 minutes), and a trainer dashboard. Built on Next.js + Node.js and live at lms.lurnex.me.",
+      tags: ["Zoom Integration", "MERN Stack", "3 hrs → 10 min onboarding"]
     },
     {
       title: "JRtinker Tinkering Lab",
       initials: "JR",
       sub: "React.js • Tailwind CSS • MongoDB",
       link: "https://lms.jrtinker.com",
-      desc: "A custom activity ecosystem tailored for interactive tech labs. Features complex timetable systems, dynamic trainer tracking matrices, and comprehensive digital activity logs.",
-      tags: ["Timetable Engine", "Activity Logs", "Trainer Matrix"]
+      desc: "A custom management portal for JRtinker — a STEM and robotics lab network. Replaced a fully manual scheduling and tracking system with automated timetables, trainer assignment, and digital activity logs. Admin time reduced by an estimated 5–6 hours per week. Live at lms.jrtinker.com.",
+      tags: ["5–6 hrs/week saved", "Automated scheduling", "Trainer Matrix"]
     },
     {
       title: "GeniusKidz AI Learning",
       initials: "GK",
       sub: "Next.js • FastAPI • Web Analytics",
       link: "https://lms.geniuskidz.ai",
-      desc: "The learning terminal powering automated AI, Robotics, and IoT training modules for K-12 systems aligned directly with innovative cognitive education guidelines.",
+      desc: "An AI-powered learning platform for GeniusKidz — a nationwide K-12 EdTech brand operating AI and robotics labs across schools. Built AI coding labs, IoT modules, and a cognitive progress dashboard. Designed to scale across 100+ school installations aligned with NEP 2020 guidelines. Live at lms.geniuskidz.ai.",
       tags: ["AI Coding Labs", "IoT Modules", "Cognitive Dashboard"]
     }
   ],
@@ -55,7 +55,7 @@ const projects = {
       initials: "TH",
       sub: "Luxury E-Commerce Terminal",
       link: "https://tibetandhamma.com",
-      desc: "A premium Next.js boutique design featuring curated image galleries, fluid interactions, and deep immersive design paths tailored for luxury art collectibles.",
+      desc: "A luxury boutique e-commerce website for Tibetan Dhamma — a handcrafted collectibles brand. Designed for premium brand perception with immersive gallery UX, fluid micro-animations, and a mobile-first shopping experience. Optimised for fast load speeds and product discovery. Live at tibetandhamma.com.",
       tags: ["Boutique UI", "Immersive Gallery", "Fluid Animations"]
     },
     {

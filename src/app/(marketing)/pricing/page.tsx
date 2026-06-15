@@ -221,13 +221,13 @@ export default function PricingPage() {
               </span>
             </div>
             <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-none uppercase mb-6">
-              PREMIUM GROWTH <br />
+             Simple, transparent pricing <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff0080] via-[#8a2be2] to-[#00DFD8]">
-                ARCHITECTURES
+                No hidden costs.
               </span>
             </h1>
             <p className="text-zinc-400 text-lg font-light leading-relaxed max-w-xl">
-              Transparent scaling matrices for modern operations. We specialize in engineering <span className="text-white font-normal">AI-powered growth systems</span> tailored to your computational demands.
+              Every package includes a training handover so your team can run everything independently.
             </p>
           </div>
 
