@@ -4,14 +4,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+
 import {
-  FiGithub,
-  FiTwitter,
+  FiInstagram,
   FiLinkedin,
   FiArrowUp,
   FiActivity,
   FiX,
 } from "react-icons/fi";
+
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   const [activeModal, setActiveModal] = useState<
@@ -23,7 +25,6 @@ export default function Footer() {
 
   const closeModal = () => setActiveModal(null);
 
-  // ESC KEY CLOSE
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -41,18 +42,25 @@ export default function Footer() {
   return (
     <>
       <footer className="relative overflow-hidden border-t border-white/5 bg-[#020202] px-6 pt-32 pb-12">
+
         {/* Background Decorative Gradient */}
         <div className="pointer-events-none absolute top-0 left-1/4 h-[500px] w-[500px] rounded-full bg-[#FF0080]/5 blur-[120px]" />
+
         <div className="pointer-events-none absolute right-1/4 bottom-0 h-[500px] w-[500px] rounded-full bg-[#00DFD8]/5 blur-[120px]" />
 
         <div className="relative z-10 mx-auto max-w-7xl">
+
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-8">
 
             {/* Brand Block */}
             <div className="lg:col-span-5">
+
               <Link href="/" className="group inline-block">
+
                 <div className="flex items-center gap-4">
+
                   <div className="relative h-12 w-12 transition-transform duration-500 group-hover:rotate-12">
+
                     <Image
                       src="/logo.png"
                       alt="The Cyber Loom"
@@ -61,7 +69,7 @@ export default function Footer() {
                     />
                   </div>
 
-                  <h2 className="bg-gradient-to-r from-[#FF0080] to-[#00DFD8] bg-clip-text text-3xl font-black uppercase italic tracking-tighter text-transparent">
+                  <h2 className="bg-gradient-to-r from-[#FF0080] to-[#00DFD8] bg-clip-text text-3xl font-black uppercase italic tracking-tight text-transparent pr-1">
                     CyberLoom
                   </h2>
                 </div>
@@ -75,17 +83,45 @@ export default function Footer() {
 
               {/* Social Icons */}
               <div className="mt-10 flex gap-3">
-                {[FiGithub, FiTwitter, FiLinkedin].map((Icon, i) => (
-                  <button
-                    key={i}
-                    className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-400 transition-all hover:border-[#00DFD8]/50"
-                  >
-                    <Icon
-                      size={18}
-                      className="transition-colors group-hover:text-[#00DFD8]"
-                    />
-                  </button>
-                ))}
+
+                {/* Instagram */}
+                <a
+                  href="https://instagram.com/yourusername"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-400 transition-all hover:border-[#00DFD8]/50"
+                >
+                  <FiInstagram
+                    size={18}
+                    className="transition-colors group-hover:text-[#00DFD8]"
+                  />
+                </a>
+
+                {/* WhatsApp */}
+                <a
+                  href="https://wa.me/919999999999"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-400 transition-all hover:border-[#00DFD8]/50"
+                >
+                  <FaWhatsapp
+                    size={18}
+                    className="transition-colors group-hover:text-[#00DFD8]"
+                  />
+                </a>
+
+                {/* LinkedIn */}
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-400 transition-all hover:border-[#00DFD8]/50"
+                >
+                  <FiLinkedin
+                    size={18}
+                    className="transition-colors group-hover:text-[#00DFD8]"
+                  />
+                </a>
               </div>
             </div>
 
@@ -127,6 +163,7 @@ export default function Footer() {
                 </h3>
 
                 <ul className="space-y-5">
+
                   <li>
                     <button
                       onClick={() => setActiveModal("privacy")}
@@ -164,18 +201,10 @@ export default function Footer() {
                 </h3>
 
                 <ul className="space-y-5">
-                  <li>
-                    <Link
-                      href="/contact"
-                      className="inline-block text-xs font-bold text-zinc-600 transition-all hover:translate-x-1 hover:text-white"
-                    >
-                      Contact Us
-                    </Link>
-                  </li>
 
                   <li>
                     <a
-                      href="mailto:contact@thecyberloom.com"
+                      href="mailto:info@thecyberloom.com"
                       className="inline-block text-xs font-bold text-zinc-600 transition-all hover:translate-x-1 hover:text-white"
                     >
                       info@thecyberloom.com
@@ -192,7 +221,6 @@ export default function Footer() {
               <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-zinc-700">
                 © 2026 THE CYBER LOOM // ALL RIGHTS RESERVED
               </span>
-
               <div className="flex items-center gap-3 rounded-full border border-white/5 bg-zinc-900/40 px-4 py-2">
                 <div className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00DFD8] opacity-20"></span>
@@ -249,9 +277,6 @@ export default function Footer() {
               transition={{ duration: 0.3 }}
               className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-[32px] border border-white/10 bg-[#050505] p-8 md:p-12"
             >
-              {/* Glow */}
-              <div className="pointer-events-none absolute top-0 left-0 h-80 w-80 rounded-full bg-[#FF0080]/10 blur-[120px]" />
-              <div className="pointer-events-none absolute right-0 bottom-0 h-80 w-80 rounded-full bg-[#00DFD8]/10 blur-[120px]" />
 
               {/* Close Button */}
               <button
@@ -262,8 +287,10 @@ export default function Footer() {
               </button>
 
               <div className="relative z-10">
+
                 {/* Heading */}
                 <div className="mb-10">
+
                   <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400">
                     CYBERLOOM LEGAL
                   </span>
@@ -277,89 +304,111 @@ export default function Footer() {
                   <p className="mt-4 text-sm text-zinc-500">
                     Last Updated — May 2026
                   </p>
+
                 </div>
 
                 {/* CONTENT */}
                 <div className="space-y-8 text-sm leading-8 text-zinc-400">
 
-                  {/* PRIVACY */}
+                  {/* PRIVACY POLICY */}
                   {activeModal === "privacy" && (
                     <>
+
                       <section>
                         <h3 className="mb-3 text-lg font-bold text-white">
-                          1. Information We Collect
+                          1. Information Collection
                         </h3>
+
                         <p>
-                          We may collect personal information including your
-                          name, email address, company information, phone
-                          number, project requirements, browser data, analytics,
-                          cookies, and interaction behavior to improve our
-                          services and user experience.
+                          CyberLoom may collect personal information including your
+                          name, email address, phone number, organization details,
+                          project requirements, communication preferences, browser
+                          metadata, device information, and analytics data to
+                          improve platform functionality and client experiences.
                         </p>
                       </section>
 
                       <section>
                         <h3 className="mb-3 text-lg font-bold text-white">
-                          2. How We Use Data
+                          2. Usage of Information
                         </h3>
+
                         <p>
-                          Your information is used to communicate with you,
-                          provide digital solutions, improve website
-                          performance, deliver support, optimize user experience,
-                          and develop better automation systems and scalable
-                          products.
+                          Information collected is used to provide digital services,
+                          improve automation systems, optimize business workflows,
+                          communicate project updates, enhance user experiences,
+                          process inquiries, and strengthen security infrastructure.
                         </p>
                       </section>
 
                       <section>
                         <h3 className="mb-3 text-lg font-bold text-white">
-                          3. Security & Protection
+                          3. Cookies & Analytics
                         </h3>
+
                         <p>
-                          CyberLoom follows industry-standard security practices
-                          to protect user data against unauthorized access,
-                          disclosure, or misuse. However, no digital system can
-                          guarantee absolute security.
+                          We use cookies, tracking technologies, and analytics tools
+                          to understand visitor behavior, improve navigation,
+                          optimize conversion performance, and personalize digital
+                          experiences. Users may disable cookies through browser
+                          settings.
                         </p>
                       </section>
 
                       <section>
                         <h3 className="mb-3 text-lg font-bold text-white">
-                          4. Cookies & Tracking
+                          4. Data Protection
                         </h3>
+
                         <p>
-                          We use cookies and analytics tools to understand user
-                          behavior, personalize experiences, improve
-                          functionality, and optimize campaigns. Users can
-                          disable cookies through browser settings.
+                          CyberLoom implements industry-standard security practices
+                          to protect user information against unauthorized access,
+                          misuse, or disclosure. While we strive to maintain secure
+                          systems, no digital platform guarantees complete security.
                         </p>
                       </section>
 
                       <section>
                         <h3 className="mb-3 text-lg font-bold text-white">
-                          5. User Rights
+                          5. Third-Party Services
                         </h3>
+
                         <p>
-                          Users may request access, correction, deletion, or
-                          modification of their personal data depending on
-                          applicable regulations and policies.
+                          Some services may integrate third-party providers such as
+                          hosting platforms, payment gateways, analytics services,
+                          or communication tools. These providers maintain separate
+                          privacy policies and operational standards.
                         </p>
                       </section>
+
+                      <section>
+                        <h3 className="mb-3 text-lg font-bold text-white">
+                          6. User Rights
+                        </h3>
+
+                        <p>
+                          Users may request access, modification, deletion, or
+                          clarification regarding personal data stored within our
+                          systems by contacting CyberLoom directly.
+                        </p>
+                      </section>
+
                     </>
                   )}
 
                   {/* TERMS */}
                   {activeModal === "terms" && (
                     <>
+
                       <section>
                         <h3 className="mb-3 text-lg font-bold text-white">
-                          1. Website Usage
+                          1. Acceptance of Terms
                         </h3>
+
                         <p>
-                          By accessing this website, you agree not to misuse the
-                          platform, attempt unauthorized access, upload harmful
-                          software, distribute spam, or copy content without
-                          written permission.
+                          By accessing or using CyberLoom services, platforms, or
+                          digital systems, users acknowledge and agree to comply
+                          with all terms, policies, and applicable regulations.
                         </p>
                       </section>
 
@@ -367,59 +416,83 @@ export default function Footer() {
                         <h3 className="mb-3 text-lg font-bold text-white">
                           2. Intellectual Property
                         </h3>
+
                         <p>
-                          All logos, branding, graphics, code, UI elements,
-                          designs, animations, and digital assets remain the
-                          property of CyberLoom unless otherwise stated.
+                          All branding, source code, UI designs, automation systems,
+                          graphics, visual assets, and digital materials remain the
+                          intellectual property of CyberLoom unless explicitly
+                          transferred through written agreements.
                         </p>
                       </section>
 
                       <section>
                         <h3 className="mb-3 text-lg font-bold text-white">
-                          3. Services & Deliverables
+                          3. Service Scope
                         </h3>
+
                         <p>
-                          Project timelines, pricing, revisions, deliverables,
-                          and service scope are defined individually through
-                          proposals or agreements before project execution.
+                          Project timelines, deliverables, revisions, pricing,
+                          integrations, and deployment conditions are defined
+                          individually through proposals, invoices, or signed
+                          agreements before project execution begins.
                         </p>
                       </section>
 
                       <section>
                         <h3 className="mb-3 text-lg font-bold text-white">
-                          4. Limitation of Liability
+                          4. Restrictions
                         </h3>
+
                         <p>
-                          CyberLoom is not responsible for indirect losses,
-                          external attacks, business interruptions, or third-party
-                          service failures beyond our control.
+                          Users agree not to misuse the platform, attempt
+                          unauthorized access, distribute malicious software,
+                          duplicate protected materials, interfere with services,
+                          or engage in unlawful digital activities.
                         </p>
                       </section>
 
                       <section>
                         <h3 className="mb-3 text-lg font-bold text-white">
-                          5. Policy Updates
+                          5. Limitation of Liability
                         </h3>
+
                         <p>
-                          We reserve the right to modify these terms at any
-                          time. Continued use of the website indicates acceptance
-                          of updated terms and conditions.
+                          CyberLoom shall not be held responsible for indirect
+                          damages, operational interruptions, security breaches,
+                          third-party failures, financial losses, or external
+                          technical issues beyond our reasonable control.
                         </p>
                       </section>
+
+                      <section>
+                        <h3 className="mb-3 text-lg font-bold text-white">
+                          6. Policy Modifications
+                        </h3>
+
+                        <p>
+                          CyberLoom reserves the right to modify policies, pricing,
+                          technical systems, or operational structures at any time.
+                          Continued usage of the platform constitutes acceptance of
+                          updated terms and policies.
+                        </p>
+                      </section>
+
                     </>
                   )}
 
-                  {/* REFUND */}
+                  {/* REFUND POLICY */}
                   {activeModal === "refund" && (
                     <>
+
                       <section>
                         <h3 className="mb-3 text-lg font-bold text-white">
                           1. Refund Eligibility
                         </h3>
+
                         <p>
-                          Refund requests are evaluated individually depending
-                          on project status, completed milestones, consultation
-                          hours, and service delivery progress.
+                          Refund requests are evaluated individually depending on
+                          project progress, milestone completion, consultation
+                          hours, deployed systems, and service usage status.
                         </p>
                       </section>
 
@@ -427,11 +500,12 @@ export default function Footer() {
                         <h3 className="mb-3 text-lg font-bold text-white">
                           2. Non-Refundable Services
                         </h3>
+
                         <p>
-                          Payments for completed development, UI/UX design,
-                          deployment, consultation, AI integrations, and
-                          strategy sessions are generally non-refundable once
-                          work has started.
+                          Payments for completed development work, AI integrations,
+                          design systems, automation setup, deployment pipelines,
+                          consultations, or strategy sessions are generally
+                          non-refundable after project initiation.
                         </p>
                       </section>
 
@@ -439,37 +513,41 @@ export default function Footer() {
                         <h3 className="mb-3 text-lg font-bold text-white">
                           3. Cancellation Policy
                         </h3>
+
                         <p>
-                          Clients may request project cancellation through
-                          official communication channels. Any completed work
-                          before cancellation remains billable.
+                          Clients may request project cancellation through official
+                          communication channels. Any completed work prior to
+                          cancellation remains chargeable according to agreed
+                          project terms.
                         </p>
                       </section>
 
                       <section>
                         <h3 className="mb-3 text-lg font-bold text-white">
-                          4. Processing Time
+                          4. Processing Timeline
                         </h3>
+
                         <p>
-                          Approved refunds are generally processed within
-                          7–14 business days depending on payment providers and
-                          banking systems.
+                          Approved refunds are typically processed within 7–14
+                          business days depending on payment processors, banking
+                          infrastructure, and regional transaction policies.
                         </p>
                       </section>
 
                       <section>
                         <h3 className="mb-3 text-lg font-bold text-white">
-                          5. Contact Support
+                          5. Contact & Billing Support
                         </h3>
+
                         <p>
-                          For billing concerns, refund requests, or payment
-                          assistance, contact us at
-                          {" "}
+                          For billing concerns, payment disputes, or refund-related
+                          inquiries, contact our support team at{" "}
                           <span className="text-[#00DFD8]">
-                            contact@thecyberloom.com
+                            info@thecyberloom.com
                           </span>
                         </p>
                       </section>
+
                     </>
                   )}
                 </div>
