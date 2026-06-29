@@ -1,187 +1,362 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { FiCheck, FiCpu, FiShield, FiZap, FiTerminal, FiArrowRight } from "react-icons/fi";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+import { FiCheck, FiArrowRight, FiExternalLink } from "react-icons/fi";
+import { RiCpuLine, RiRadarLine, RiCustomerService2Line, RiShieldFlashLine, RiSparklingLine, RiFlashlightLine } from "react-icons/ri";
 import Link from "next/link";
 
-const plans = [
+const corePackages = [
   {
-    title: "Starter Automation",
-    price: "₹25,000",
-    tagline: "Intelligent automation essentials for local operations and validation.",
+    title: "Starter Website",
+    price: "₹9,999",
+    period: "one-time",
+    description: "5 pages · Domain & Hosting Year 1 included",
     features: [
-      "WhatsApp automated pipelines",
-      "Lead capture workflow structure",
-      "Systematic email automation",
-      "Central CRM synchronization",
-      "Basic custom AI assistant node"
+      "5-page responsive website",
+      "Domain (1 year) + Cloud Hosting (1 year)",
+      "WhatsApp (WA) integration",
+      "Basic SEO setup",
+      "Google Business Profile (GBP) setup",
+      "SSL certificate",
+      "10-day/month post-launch support",
+      "Add-on pages: ₹1,000–₹1,500/page"
     ],
-    icon: <FiZap />,
-    accent: "from-blue-500 to-cyan-400",
-    suffix: "/ one-time",
+    icon: <RiFlashlightLine />,
+    gradient: "from-fuchsia-500 via-purple-500 to-pink-500",
+    isPopular: false,
+    ctaText: "Get Started"
   },
   {
-    title: "Growth System",
-    price: "₹80,000",
-    tagline: "Total workflow and operational dominance for scaling modern brands.",
+    title: "Growth Plan",
+    price: "₹14,999",
+    range: "— ₹24,999",
+    period: "One-time investment",
+    description: "Designed for businesses ready to scale and capture online leads.",
     features: [
-      "Advanced AI data workflows",
-      "End-to-end CRM automation",
-      "Sales pipeline automation engine",
-      "Internal operational workflows",
-      "Automated customer onboarding",
-      "Deep third-party integrations"
+      "Everything in Starter Package",
+      "Custom brand-aligned web design",
+      "Advanced on-page & technical SEO",
+      "Lead generation system",
+      "Domain & hosting paid by client",
+      "Contact & inquiry forms",
+      "Google Analytics 4 integration",
+      "Speed & Core Web Vitals optimization",
+      "Social media profile integration",
+      "Basic content upload on delivery",
+      "30-day post-launch technical support"
     ],
-    icon: <FiCpu />,
-    accent: "from-fuchsia-600 to-purple-400",
-    recommended: true,
-    suffix: "/ one-time",
+    icon: <RiRadarLine />,
+    gradient: "from-[#ff0099] via-[#bf5af2] to-[#0a84ff]",
+    isPopular: true,
+    ctaText: "Choose Growth"
   },
   {
-    title: "Enterprise AI",
-    price: "Custom",
-    tagline: "Unrestricted architectural sovereignty and dedicated system frameworks.",
+    title: "AI Business Plan",
+    price: "₹34,999+",
+    period: "Starting Price",
+    description: "Scope-based custom quote · 3–6 weeks delivery.",
     features: [
-      "Autonomous AI agent clusters",
-      "RAG system architectures",
-      "Internal productivity copilots",
-      "Enterprise workflow ecosystems",
-      "Custom LLM infrastructure setups"
+      "Everything in the Growth Website Package",
+      "AI Chatbot (trained on your business data — 24/7 automated)",
+      "WhatsApp automation — lead nurture, order updates, reminders",
+      "Appointment & online booking management system",
+      "CRM integration & Custom admin dashboard",
+      "Role-based business management panel",
+      "Premium UI/UX design with animations & micro-interactions",
+      "Priority dedicated support "
     ],
-    icon: <FiShield />,
-    accent: "from-emerald-500 to-teal-400",
-    suffix: "/ layer",
-  },
+    icon: <RiCpuLine />,
+    gradient: "from-purple-500 via-cyan-500 to-blue-500",
+    isPopular: false,
+    ctaText: "Let's Discuss"
+  }
 ];
 
-export default function PricingPreview() {
-  return (
-    <section className="relative bg-[#030303] py-40 px-6 overflow-hidden">
-      {/* Background Grid */}
-      <div className="absolute inset-0 z-0 opacity-20" 
-           style={{ backgroundImage: `radial-gradient(#333 1px, transparent 1px)`, backgroundSize: '40px 40px' }} />
-      
-      <div className="mx-auto max-w-7xl relative z-10">
-        {/* Header */}
-        <div className="mb-32 flex flex-col items-center text-center">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            className="flex items-center gap-3 rounded-full border border-white/5 bg-white/5 px-5 py-2 backdrop-blur-2xl"
-          >
-            <div className="h-2 w-2 rounded-full bg-fuchsia-500 animate-ping" />
-            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-zinc-400">System Capitalization</span>
-          </motion.div>
+const carePlans = [
+  {
+    title: "Website Essential Care",
+    price: "₹1999",
+    period: "per month",
+    description: "Peace of mind maintenance to keep your website fast, secure, and fully updated.",
+    features: [
+      "Basic website edits & copy updates (up to 10 changes/month)",
+      "Web hosting support & uptime monitoring",
+      "Content uploads — images, text, product listings",
+      "Bug identification, diagnosis & resolution",
+      "Billed monthly · Cancel with 15-day notice · No hidden charges",
+      "WhatsApp direct support (Mon–Sat, 10 AM–7 PM IST)"
+    ],
+    icon: <RiCustomerService2Line />,
+    gradient: "from-fuchsia-500/30 to-purple-500/20"
+  },
+  {
+    title: "Digital Presence Plan",
+    price: "₹7999",
+    period: "per month",
+    description: "An all-in-one monthly plan combining continuous site updates with fresh marketing content.",
+    features: [
+      "Website maintenance & monthly updates",
+      "Up to 5 website content section changes",
+      "Social Media: 4 Static Posts (design + caption + hashtags)",
+      "Social Media: 2 Reels (concept + design/motion graphics)",
+      "1 Custom Landing Page (design + copy + dev)",
+      "2 Promotional Banners (digital-ready files)",
+      "8 content deliverables/month · Perfect for new brands",
+      "WhatsApp support included"
+    ],
+    icon: <RiSparklingLine />,
+    gradient: "from-[#ff0099]/40 via-[#bf5af2]/30 to-[#0a84ff]/20",
+    isPopular: true
+  },
+  {
+    title: "Brand Amplifier Plan",
+    price: "₹11,999",
+    period: "per month",
+    description: "Maximum digital impact with high-volume design deliverables to dominate your market.",
+    features: [
+      "Everything in Digital Presence Plan, PLUS:",
+      "Social Media: 8 Posts (carousel + static + branded captions)",
+      "Social Media: 4 Reels (scripted, animated, branded)",
+      "8 Story Creatives per month",
+      "1 Custom Landing Page per month",
+      "4 Promotional Banners per month",
+      "Basic monthly performance report",
+      "20 deliverables/month · For brands ready to dominate",
+      "Priority WhatsApp support"
+    ],
+    icon: <RiShieldFlashLine />,
+    gradient: "from-cyan-500/30 to-blue-500/20"
+  }
+];
 
-          <h2 className="mt-8 text-7xl md:text-9xl font-black tracking-tighter text-white">
-            PRICING<span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-800">.V3</span>
+export default function PricingSection() {
+  return (
+    <section id="pricing" className="relative bg-[#030303] py-28 px-6 text-zinc-300 selection:bg-fuchsia-500/30 overflow-hidden w-full">
+      
+      {/* Background Gradients & Noise Mesh Grid */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+        <div 
+          className="absolute inset-0 opacity-[0.02]" 
+          style={{ 
+            backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`, 
+            backgroundSize: '30px 30px' 
+          }} 
+        />
+        <motion.div 
+          animate={{ scale: [1, 1.15, 1], opacity: [0.1, 0.2, 0.1] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[15%] left-[-10%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-purple-600 to-fuchsia-600 blur-[150px]" 
+        />
+        <motion.div 
+          animate={{ scale: [1, 1.1, 1], opacity: [0.05, 0.12, 0.05] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-cyan-500 blur-[140px]" 
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        
+        {/* =========================================================
+            SECTION 1: WEBSITE PACKAGES
+           ========================================================= */}
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="flex justify-center items-center gap-2 mb-4">
+            <span className="text-[11px] font-mono uppercase tracking-[0.35em] font-black bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-400 to-cyan-400">
+              Fixed Pricing Models
+            </span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-white">
+            Website Packages
           </h2>
+          <p className="mt-4 text-sm sm:text-base text-zinc-500 font-medium max-w-xl mx-auto leading-relaxed">
+            Transparent, performance-driven architectural frameworks built to optimize business conversions.
+          </p>
         </div>
 
-        {/* Pricing Cards Grid */}
-        <div className="grid gap-8 lg:grid-cols-3 items-end">
-          {plans.map((plan, i) => (
-            <PricingCard key={plan.title} plan={plan} index={i} />
+        {/* Core Packages Grid */}
+        <div className="grid gap-8 grid-cols-1 lg:grid-cols-3 mb-12">
+          {corePackages.map((plan, i) => (
+            <motion.div
+              key={plan.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              whileHover={{ y: -5 }}
+              className={`relative rounded-3xl p-[1px] bg-gradient-to-tr transition-all duration-300 group ${
+                plan.isPopular 
+                  ? "from-fuchsia-500/40 via-purple-500/20 to-cyan-500/40 shadow-[0_20px_50px_rgba(191,90,242,0.15)]" 
+                  : "from-zinc-900 via-zinc-800 to-zinc-900 hover:from-zinc-800 hover:via-zinc-700 hover:to-zinc-800"
+              }`}
+            >
+              <div className="w-full h-full rounded-[23px] bg-[#070709]/95 backdrop-blur-xl p-6 sm:p-8 flex flex-col justify-between">
+                
+                {plan.isPopular && (
+                  <span className="absolute -top-3 left-8 rounded-full bg-gradient-to-r from-fuchsia-600 via-purple-600 to-blue-600 px-4 py-1 text-[9px] font-mono tracking-widest font-black uppercase text-white shadow-lg shadow-fuchsia-600/20">
+                    Most Popular
+                  </span>
+                )}
+
+                <div>
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-zinc-950 border border-white/5 text-xl text-fuchsia-400 shadow-[0_0_15px_rgba(217,70,239,0.1)]">
+                      {plan.icon}
+                    </div>
+                    <h3 className="text-base font-black uppercase tracking-wider text-white">{plan.title}</h3>
+                  </div>
+
+                  <p className="text-[13px] text-zinc-500 leading-relaxed min-h-[40px] mb-6 font-medium">
+                    {plan.description}
+                  </p>
+
+                  <div className="border-b border-zinc-900 pb-6 mb-6">
+                    <div className="flex items-baseline text-white">
+                      <span className={`text-3xl font-black tracking-tight ${plan.isPopular ? "text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 via-purple-400 to-cyan-400" : ""}`}>
+                        {plan.price}
+                      </span>
+                      {plan.range && <span className="text-xl font-bold text-zinc-500 ml-1">{plan.range}</span>}
+                    </div>
+                    <span className="text-[10px] font-mono uppercase font-bold text-zinc-600 tracking-wider block mt-1.5">{plan.period}</span>
+                  </div>
+
+                  <ul className="space-y-4 mb-8">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-3 text-xs font-medium text-zinc-400">
+                        <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-fuchsia-500/10 border border-fuchsia-500/30 text-[9px] text-fuchsia-400 mt-0.5">
+                          <FiCheck />
+                        </div>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <Link href="/book" passHref>
+                  <motion.button 
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.99 }}
+                    className={`w-full h-12 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 ${
+                      plan.isPopular
+                        ? "bg-gradient-to-r from-fuchsia-600 to-purple-600 text-white shadow-md shadow-fuchsia-600/10 hover:shadow-fuchsia-600/20"
+                        : "bg-zinc-950 text-zinc-400 border border-zinc-900 hover:border-zinc-800 hover:bg-zinc-900/50 hover:text-white"
+                    }`}
+                  >
+                    <span>{plan.ctaText}</span>
+                    <FiArrowRight size={13} className="transition-transform group-hover:translate-x-1" />
+                  </motion.button>
+                </Link>
+              </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* "See More" Link Button */}
-        <div className="mt-24 text-center">
-          <Link href="/pricing" passHref>
-            <button className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-white/10 bg-zinc-950/40 backdrop-blur-md px-10 py-5 text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-white hover:border-white/20 transition-all hover:scale-105 active:scale-95">
-              <span>See More Plans</span>
-              <FiArrowRight className="text-sm text-fuchsia-500 transition-transform group-hover:translate-x-1.5" />
+        {/* Dynamic Explore More Packages Button Component */}
+        <div className="flex justify-center mb-32">
+          <Link href="/packages" passHref>
+            <motion.button
+              whileHover={{ scale: 1.02, y: -2, borderColor: 'rgba(217,70,239,0.4)' }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-zinc-950/40 border border-zinc-900 text-xs font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition-all duration-200 shadow-xl backdrop-blur-md"
+            >
+              <span>Explore More Packages</span>
+              <FiExternalLink size={13} className="text-zinc-600 transition-colors group-hover:text-fuchsia-400" />
+            </motion.button>
+          </Link>
+        </div>
+
+
+        {/* =========================================================
+            SECTION 2: MONTHLY CARE PLANS
+           ========================================================= */}
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="flex justify-center items-center gap-2 mb-4">
+            <span className="text-[11px] font-mono uppercase tracking-[0.35em] font-black bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-fuchsia-400">
+              Retainer Workflows
+            </span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-white">
+            Monthly Care Plans
+          </h2>
+          <p className="mt-4 text-sm sm:text-base text-zinc-500 font-medium max-w-xl mx-auto leading-relaxed">
+            Continuous technical system iterations, content adjustments, and scalable marketing asset optimization.
+          </p>
+        </div>
+
+        {/* Care Plans Grid */}
+        <div className="grid gap-8 grid-cols-1 lg:grid-cols-3 mb-20">
+          {carePlans.map((plan, i) => (
+            <motion.div
+              key={plan.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              whileHover={{ y: -5 }}
+              className={`relative rounded-3xl p-[1px] bg-gradient-to-tr transition-all duration-300 group ${
+                plan.isPopular 
+                  ? "from-purple-500/40 via-fuchsia-500/20 to-blue-500/40 shadow-[0_20px_50px_rgba(217,70,239,0.1)]" 
+                  : "from-zinc-900 via-zinc-800 to-zinc-900 hover:from-zinc-800 hover:via-zinc-700 hover:to-zinc-800"
+              }`}
+            >
+              <div className="w-full h-full rounded-[23px] bg-[#070709]/95 backdrop-blur-xl p-6 sm:p-8 flex flex-col justify-between">
+                
+                {plan.isPopular && (
+                  <span className="absolute -top-3 left-8 rounded-full bg-gradient-to-r from-purple-600 via-fuchsia-600 to-cyan-600 px-4 py-1 text-[9px] font-mono tracking-widest font-black uppercase text-white shadow-lg shadow-purple-600/20">
+                    Best Value Combo
+                  </span>
+                )}
+
+                <div>
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-zinc-950 border border-white/5 text-xl text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.1)]">
+                      {plan.icon}
+                    </div>
+                    <h3 className="text-base font-black uppercase tracking-wider text-white">{plan.title}</h3>
+                  </div>
+
+                  <p className="text-[13px] text-zinc-500 leading-relaxed min-h-[60px] mb-6 font-medium">
+                    {plan.description}
+                  </p>
+
+                  <div className="border-b border-zinc-900 pb-6 mb-6">
+                    <div className="flex items-baseline text-white">
+                      <span className={`text-3xl font-black tracking-tight ${plan.isPopular ? "text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-cyan-400" : ""}`}>
+                        {plan.price}
+                      </span>
+                      <span className="text-xs font-bold text-zinc-600 ml-1.5 font-mono uppercase tracking-wider">/ {plan.period}</span>
+                    </div>
+                  </div>
+
+                  <ul className="space-y-4 mb-4">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-3 text-xs font-medium text-zinc-400">
+                        <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cyan-500/10 border border-cyan-500/30 text-[9px] text-cyan-400 mt-0.5">
+                          <FiCheck />
+                        </div>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Premium Structural Bottom Inquiry Footer Bar */}
+        <div className="border-t border-zinc-900 pt-14 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <p className="text-xs font-medium text-zinc-500 text-center sm:text-left max-w-md leading-relaxed">
+            Need a completely isolated, distinct infrastructure design or custom logic-driven enterprise platform integrations?
+          </p>
+          <Link href="/book" passHref>
+            <button className="flex items-center gap-2.5 text-xs font-mono uppercase font-black tracking-widest text-white hover:text-fuchsia-400 transition-colors duration-200 group">
+              <span>Let's build a custom plan</span>
+              <FiArrowRight size={14} className="text-fuchsia-500 transition-transform group-hover:translate-x-1.5" />
             </button>
           </Link>
         </div>
 
       </div>
     </section>
-  );
-}
-
-function PricingCard({ plan, index }: { plan: any; index: number }) {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
-
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7deg", "-7deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7deg", "7deg"]);
-
-  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    x.set(mouseX / width - 0.5);
-    y.set(mouseY / height - 0.5);
-  }
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={() => { x.set(0); y.set(0); }}
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      className={`group relative flex flex-col rounded-[3rem] p-1 ${plan.recommended ? 'scale-105 z-20 mb-10 lg:mb-20' : 'z-10'}`}
-    >
-      {/* Glow Effects */}
-      <div className={`absolute inset-0 rounded-[3rem] bg-gradient-to-b ${plan.accent} opacity-10 group-hover:opacity-30 transition-opacity blur-xl`} />
-      
-      <div className="relative h-full flex flex-col rounded-[2.9rem] bg-[#080808] border border-white/5 p-10 overflow-hidden">
-        <div className={`absolute -right-20 -top-20 h-40 w-40 rounded-full bg-gradient-to-br ${plan.accent} opacity-20 blur-[80px] group-hover:opacity-40 transition-opacity`} />
-        
-        {/* Content */}
-        <div className="mb-12">
-          <div className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-zinc-900 border border-white/5 text-2xl group-hover:scale-110 transition-transform ${plan.recommended ? 'text-fuchsia-400' : 'text-zinc-400'}`}>
-            {plan.icon}
-          </div>
-          <h3 className="text-3xl font-black tracking-tight text-white uppercase italic">{plan.title}</h3>
-          <p className="mt-3 text-sm leading-relaxed text-zinc-500">{plan.tagline}</p>
-        </div>
-
-        {/* Pricing */}
-        <div className="mb-12 flex items-baseline gap-2">
-          <span className="text-5xl font-black tracking-tighter text-white">{plan.price}</span>
-          <span className="text-zinc-700 font-mono text-[10px] uppercase tracking-widest">{plan.suffix}</span>
-        </div>
-
-        {/* Features */}
-        <div className="flex-1 space-y-5">
-          {plan.features.map((feature: string) => (
-            <div key={feature} className="flex items-start gap-4 text-sm text-zinc-400">
-              <div className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-white/10 text-[8px]">
-                <FiCheck />
-              </div>
-              {feature}
-            </div>
-          ))}
-        </div>
-
-        {/* Action Button */}
-        <button className="mt-16 group/btn relative flex items-center justify-center gap-3 overflow-hidden rounded-full bg-white px-8 py-5 transition-all hover:scale-105 active:scale-95">
-          <div className={`absolute inset-0 bg-gradient-to-r ${plan.accent} opacity-0 group-hover/btn:opacity-100 transition-opacity`} />
-          <span className="relative z-10 text-xs font-black uppercase tracking-[0.2em] text-black group-hover/btn:text-white transition-colors">
-            Initialize Setup
-          </span>
-          <FiTerminal className="relative z-10 text-black group-hover/btn:text-white transition-colors" />
-        </button>
-
-        {/* Design Details */}
-        <div className="mt-8 flex justify-between items-center opacity-30 group-hover:opacity-100 transition-opacity">
-          <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-zinc-800" />
-          <span className="px-4 font-mono text-[8px] uppercase tracking-widest text-zinc-500 italic">
-            X-Protocol.v{index + 1}
-          </span>
-          <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-zinc-800" />
-        </div>
-      </div>
-    </motion.div>
   );
 }
