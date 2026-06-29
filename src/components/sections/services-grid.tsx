@@ -3,63 +3,71 @@
 import { motion, useMotionValue, useSpring, useMotionTemplate } from "framer-motion";
 import { 
   FiCode, FiCpu, FiZap, FiLayout, 
-  FiSearch, FiMessageSquare, FiArrowUpRight 
+  FiSearch, FiMessageSquare, FiArrowRight 
 } from "react-icons/fi";
 import { MouseEvent } from "react";
 import Link from "next/link";
 
-// Updated with explicit slugs matching your servicesData configuration object keys
 const services = [
-  { slug: "website-development", title: "Website Development", desc: "Fast websites that load in under 2 seconds and rank on Google.", icon: <FiCode />, color: "#ff0099", size: "md:col-span-2" },
-  { slug: "ai-integration", title: "AI Integration", desc: "Add AI features to your existing tools — CRM, WhatsApp, or custom software.", icon: <FiCpu />, color: "#8a2be2", size: "md:col-span-1" },
-  { slug: "ai-automation", title: "AI Automation", desc: "Automate the repetitive tasks eating your team's time every day.", icon: <FiZap />, color: "#00dbde", size: "md:col-span-1" },
-  { slug: "saas-development", title: "SaaS Development", desc: "Scalable, multi-tenant digital products.", icon: <FiLayout />, color: "#ff0099", size: "md:col-span-1" },
-  { slug: "seo-optimization", title: "SEO Optimization", desc: "Get found on Google. We handle the technical and content SEO.", icon: <FiSearch />, color: "#8a2be2", size: "md:col-span-2" },
-  { slug: "ai-chatbots", title: "AI Chatbots", desc: "AI chatbots that answer leads 24/7 and book calls while you sleep.", icon: <FiMessageSquare />, color: "#00dbde", size: "md:col-span-1" },
+  { slug: "website-development", title: "Website Development", desc: "Fast, premium websites designed to convert visitors into paying clients.", icon: <FiCode />, color: "#ff0099", size: "md:col-span-2" },
+  { slug: "ai-integration", title: "AI Integration", desc: "Connect AI directly into your CRM, WhatsApp, or custom company software.", icon: <FiCpu />, color: "#bf5af2", size: "md:col-span-1" },
+  { slug: "ai-automation", title: "AI Automation", desc: "Save hours every day by automating your team's repetitive tasks.", icon: <FiZap />, color: "#0a84ff", size: "md:col-span-1" },
+  { slug: "saas-development", title: "SaaS Development", desc: "Custom, scalable cloud platforms and multi-tenant applications.", icon: <FiLayout />, color: "#ff0099", size: "md:col-span-1" },
+  { slug: "seo-optimization", title: "SEO Optimization", desc: "Rank at the top of Google search results to pull in organic leads.", icon: <FiSearch />, color: "#bf5af2", size: "md:col-span-2" },
+  { slug: "ai-chatbots", title: "AI Chatbots", desc: "Smart 24/7 chatbots that capture leads and book client calls while you sleep.", icon: <FiMessageSquare />, color: "#0a84ff", size: "md:col-span-1" },
 ];
 
 export default function ServicesGrid() {
   return (
-    <section id="services" className="relative bg-[#030303] py-32 px-6 overflow-hidden">
-      {/* Background Architectural Mesh */}
-      <div className="absolute inset-0 z-0 opacity-20">
+    <section id="services" className="relative bg-[#030303] py-32 px-6 overflow-hidden text-white selection:bg-fuchsia-500/30">
+      
+      {/* Background Gradients & Grid Overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <div 
-          className="absolute inset-0" 
+          className="absolute inset-0 opacity-[0.02]" 
           style={{ 
-            backgroundImage: `radial-gradient(circle at 2px 2px, #ffffff10 1px, transparent 0)`,
-            backgroundSize: '40px 40px' 
+            backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`, 
+            backgroundSize: '30px 30px' 
           }} 
         />
+        {/* Syncing ambient lights with the Hero design */}
+        <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-gradient-to-br from-fuchsia-600/10 to-purple-600/10 blur-[120px]" />
+        <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-cyan-500/5 blur-[120px]" />
       </div>
 
       <div className="mx-auto max-w-7xl relative z-10">
+        
         {/* Header Section */}
-        <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-12">
-          <div className="space-y-6">
+        <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div className="space-y-4">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="flex items-center gap-3"
+              viewport={{ once: true }}
+              className="flex items-center gap-2"
             >
-              <div className="h-[1px] w-12 bg-gradient-to-r from-fuchsia-600 to-transparent" />
-              <span className="text-[10px] font-black uppercase tracking-[0.6em] text-fuchsia-500">Service Protocol</span>
+              <span className="text-[11px] font-mono uppercase tracking-[0.35em] font-black bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-400 via-purple-400 to-cyan-400">
+                Our Solutions
+              </span>
             </motion.div>
             
-            <h2 className="text-6xl md:text-8xl font-black tracking-[calc(-0.05em)] text-white leading-[0.85]">
-              DIGITAL <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 via-zinc-100 to-zinc-500">WEAVING.</span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight">
+              Services Built To <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff0099] via-[#bf5af2] to-[#0a84ff]">
+                Grow Your Business.
+              </span>
             </h2>
           </div>
           
-          <div className="md:text-right">
-            <p className="max-w-[280px] text-xs font-mono uppercase tracking-widest text-zinc-500 leading-relaxed md:ml-auto">
-              Systemized engineering designed to scale with the speed of thought. // [EST 2026]
+          <div className="border-l border-zinc-800 pl-4 md:text-left">
+            <p className="max-w-[320px] text-sm text-zinc-400 font-medium leading-relaxed">
+              We design and implement custom digital infrastructure that turns casual traffic into real operational revenue.
             </p>
           </div>
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {services.map((service, i) => (
             <ServiceCard key={service.slug} service={service} index={i} />
           ))}
@@ -70,77 +78,74 @@ export default function ServicesGrid() {
 }
 
 function ServiceCard({ service, index }: { service: any, index: number }) {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  
+  const mouseX = useSpring(x, { damping: 25, stiffness: 350 });
+  const mouseY = useSpring(y, { damping: 25, stiffness: 350 });
 
   function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent) {
     const { left, top } = currentTarget.getBoundingClientRect();
-    mouseX.set(clientX - left);
-    mouseY.set(clientY - top);
+    x.set(clientX - left);
+    y.set(clientY - top);
   }
 
+  const bgGlowTemplate = useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, ${service.color}12, transparent 75%)`;
+
   return (
-    <Link href={`/services/${service.slug}`} className={`${service.size} block group`}>
+    <Link href={`/services/${service.slug}`} className={`${service.size} block group relative`}>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ delay: index * 0.1 }}
+        transition={{ duration: 0.5, delay: index * 0.05 }}
         onMouseMove={handleMouseMove}
-        className="h-full relative overflow-hidden rounded-3xl border border-white/5 bg-zinc-900/20 p-8 backdrop-blur-sm transition-colors hover:border-white/10 cursor-pointer"
+        className="h-full relative overflow-hidden rounded-2xl border border-zinc-900 bg-zinc-950/40 p-6 sm:p-8 backdrop-blur-md transition-all duration-300 hover:border-zinc-800 flex flex-col justify-between group-hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)]"
       >
-        {/* Dynamic Cursor Glow */}
+        {/* Dynamic Spotlight Glow */}
         <motion.div
-          className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition duration-300 group-hover:opacity-100"
-          style={{
-            background: useMotionTemplate`
-              radial-gradient(
-                600px circle at ${mouseX}px ${mouseY}px,
-                ${service.color}15,
-                transparent 80%
-              )
-            `,
-          }}
+          className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-300 group-hover:opacity-100 z-0"
+          style={{ background: bgGlowTemplate }}
         />
 
-        <div className="relative z-10 flex h-full flex-col justify-between">
-          <div className="flex items-start justify-between">
+        <div className="relative z-10 flex h-full flex-col justify-between gap-12">
+          
+          <div className="flex items-start justify-between w-full">
             <div 
-              className="flex h-14 w-14 items-center justify-center rounded-2xl bg-zinc-800/50 text-2xl text-white transition-all group-hover:scale-110"
-              style={{ border: `1px solid ${service.color}30` }}
+              className="flex h-12 w-12 items-center justify-center rounded-xl bg-zinc-900/50 shadow-[inset_0_1px_0px_rgba(255,255,255,0.05)] text-lg transition-all duration-300 group-hover:scale-105"
+              style={{ border: `1px solid ${service.color}30`, color: service.color }}
             >
               {service.icon}
             </div>
-            <span className="font-mono text-[10px] text-zinc-700">0{index + 1}</span>
+            <span className="font-mono text-[10px] font-bold text-zinc-600 tracking-wider">0{index + 1}</span>
           </div>
 
-          <div className="mt-20">
-            <h3 className="text-2xl font-bold tracking-tight text-white mb-3">
+          <div className="w-full">
+            <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white mb-2">
               {service.title}
             </h3>
-            <p className="max-w-[240px] text-sm leading-relaxed text-zinc-500 transition-colors group-hover:text-zinc-300">
+            <p className="max-w-[280px] text-xs sm:text-sm leading-relaxed text-zinc-400 font-medium transition-colors duration-300 group-hover:text-zinc-300">
               {service.desc}
             </p>
             
-            <div className="mt-8 flex items-center gap-2 overflow-hidden">
-              <motion.div 
-                initial={{ x: -20, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-white/50 group-hover:text-white transition-colors"
-              >
-                Initialize Thread <FiArrowUpRight />
-              </motion.div>
+            {/* Action text aligned with simpler language style */}
+            <div className="mt-6 flex items-center gap-2 overflow-hidden">
+              <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-zinc-500 group-hover:text-white transition-colors duration-300 shrink-0">
+                <span>View Details</span> 
+                <FiArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-1" />
+              </div>
               <div 
-                className="h-[1px] flex-1 translate-x-[-100%] transition-transform duration-500 group-hover:translate-x-0" 
+                className="h-[1px] w-full origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100" 
                 style={{ backgroundColor: service.color }}
               />
             </div>
           </div>
+
         </div>
 
-        {/* Decorative Corner Scan Line */}
+        {/* Subtle Accent Edge Line */}
         <div 
-          className="absolute top-0 left-0 h-1 w-0 transition-all duration-700 group-hover:w-full"
+          className="absolute top-0 left-0 h-[1.5px] w-0 transition-all duration-300 ease-out group-hover:w-full opacity-70"
           style={{ backgroundColor: service.color }}
         />
       </motion.div>

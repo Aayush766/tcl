@@ -2,23 +2,20 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiPlus, FiMinus, FiCpu, FiHash, FiActivity } from "react-icons/fi";
+import { FiPlus, FiMinus } from "react-icons/fi";
 
 const faqs = [
   {
-    q: "How does the AI integration process work?",
-    a: "We start with a free 45-minute audit where we map out how your business currently runs. Then we build an AI system that connects directly to your existing tools — whether that's WhatsApp, your CRM, or a Google Sheet. You see the result in a live demo before we hand it over.",
-    id: "N-01"
+    q: "How does the integration process work?",
+    a: "We start with a strategy evaluation to map out your current business systems. From there, we architect a high-performance framework that links into your digital pipeline, workflows, and communication tools. You see a clear, functional overview before we push the system live.",
   },
   {
-    q: "Can you scale solutions for global enterprises?",
-    a: "Our infrastructure utilizes globally distributed edge-node networks. We guarantee <50ms latency for AI inference and platform interactions regardless of geographic origin.",
-    id: "E-42"
+    q: "Can you scale solutions for high-traffic environments?",
+    a: "Absolutely. Our deployment architectures utilize globally optimized edge routing infrastructures. We ensure high-performance execution times and ultra-low latency platform interactions, regardless of volume or geographic origin.",
   },
   {
-    q: "Do you offer post-deployment neural monitoring?",
-    a: "Yes. We implement real-time drift detection and performance telemetry. Our agents monitor model accuracy and API health 24/7 to ensure your digital fabric remains optimized.",
-    id: "M-99"
+    q: "Do you offer post-deployment operational support?",
+    a: "Yes. We incorporate persistent performance monitoring and continuous technical optimization. Our team tracks platform reliability, integration statuses, and workflow efficiency to guarantee your business architecture remains structurally optimized.",
   },
 ];
 
@@ -26,121 +23,101 @@ export default function FAQ() {
   const [activeIdx, setActiveIdx] = useState<number | null>(0);
 
   return (
-    <section className="relative bg-[#020202] py-40 px-6 overflow-hidden">
-      {/* Background Neural Lines */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
-           style={{ backgroundImage: `linear-gradient(to right, #333 1px, transparent 1px), linear-gradient(to bottom, #333 1px, transparent 1px)`, backgroundSize: '60px 60px' }} />
+    <section id="faq" className="relative bg-[#030303] py-32 px-6 overflow-hidden text-white selection:bg-fuchsia-500/30">
+      
+      {/* Background Gradients & Grid Overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div 
+          className="absolute inset-0 opacity-[0.02]" 
+          style={{ 
+            backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`, 
+            backgroundSize: '30px 30px' 
+          }} 
+        />
+        <div className="absolute top-[30%] left-[-10%] w-[500px] h-[500px] rounded-full bg-gradient-to-br from-[#ff0099]/5 to-[#bf5af2]/5 blur-[120px]" />
+        <div className="absolute bottom-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-gradient-to-br from-[#bf5af2]/5 to-[#0a84ff]/5 blur-[120px]" />
+      </div>
 
-      <div className="mx-auto max-w-5xl relative z-10">
-        <div className="mb-24 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-center md:text-left">
+      <div className="mx-auto max-w-4xl relative z-10">
+        
+        {/* Header Section */}
+        <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div className="space-y-4">
             <motion.div 
-              initial={{ opacity: 0, x: -10 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="flex items-center gap-3 text-fuchsia-500 mb-4 justify-center md:justify-start font-mono"
+              viewport={{ once: true }}
+              className="flex items-center gap-2"
             >
-              <FiCpu className="animate-pulse" />
-              <span className="text-[10px] font-black uppercase tracking-[0.5em]">System Query Protocol</span>
+              <span className="text-[11px] font-mono uppercase tracking-[0.35em] font-black bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-400 via-purple-400 to-cyan-400">
+                Common Inquiries
+              </span>
             </motion.div>
-            <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-white">
-              KNOWLEDGE <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-700 to-zinc-900" style={{ WebkitTextStroke: '1px #333' }}>BASE.</span>
+            
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight">
+              Frequently Asked <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff0099] via-[#bf5af2] to-[#0a84ff]">
+                Questions.
+              </span>
             </h2>
           </div>
           
-          <div className="hidden lg:block h-20 w-[1px] bg-zinc-800 rotate-[30deg]" />
-          
-          <div className="text-zinc-600 font-mono text-[9px] uppercase tracking-widest leading-relaxed">
-            [ Status: Operational ]<br />
-            [ Index: Updated May 2026 ]<br />
-            [ Latency: 12ms ]
+          <div className="border-l border-zinc-800 pl-4 md:text-left">
+            <p className="max-w-[320px] text-sm text-zinc-400 font-medium leading-relaxed">
+              Clear answers regarding our strategic design, implementation pipelines, and long-term ecosystem management.
+            </p>
           </div>
         </div>
 
-        <div className="space-y-2">
+        {/* Accordion List */}
+        <div className="divide-y divide-zinc-900 border-t border-b border-zinc-900">
           {faqs.map((faq, i) => {
             const isOpen = activeIdx === i;
             return (
-              <motion.div
+              <div
                 key={i}
-                initial={false}
-                className={`relative group overflow-hidden transition-all duration-500 ${
-                  isOpen ? "bg-zinc-900/30" : "bg-transparent hover:bg-white/[0.02]"
-                }`}
+                className="relative overflow-hidden transition-all duration-300"
               >
-                {/* Active Sidebar Indicator */}
-                <div className={`absolute left-0 top-0 bottom-0 w-[2px] transition-all duration-500 ${
-                  isOpen ? "bg-fuchsia-500 shadow-[0_0_15px_#d946ef]" : "bg-zinc-800"
-                }`} />
-
                 <button
                   onClick={() => setActiveIdx(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between p-8 text-left"
+                  className="flex w-full items-center justify-between py-6 sm:py-8 text-left group"
                 >
-                  <div className="flex items-center gap-6">
-                    <span className="font-mono text-xs text-zinc-700 group-hover:text-fuchsia-500 transition-colors">
-                      {faq.id}
-                    </span>
-                    <span className={`text-xl md:text-2xl font-bold tracking-tight transition-all ${
-                      isOpen ? "text-white translate-x-2" : "text-zinc-500"
-                    }`}>
-                      {faq.q}
-                    </span>
-                  </div>
-                  
-                  <div className={`flex h-8 w-8 items-center justify-center rounded-sm border transition-all duration-300 ${
-                    isOpen ? "border-fuchsia-500 bg-fuchsia-500 text-black rotate-90" : "border-zinc-800 text-zinc-600 group-hover:border-zinc-500"
+                  <span className={`text-lg sm:text-xl font-bold tracking-tight transition-colors duration-300 ${
+                    isOpen ? "text-white" : "text-zinc-400 group-hover:text-zinc-200"
                   }`}>
-                    {isOpen ? <FiHash /> : <FiPlus />}
+                    {faq.q}
+                  </span>
+                  
+                  <div className={`flex h-8 w-8 items-center justify-center rounded-xl bg-zinc-900/50 border transition-all duration-300 ${
+                    isOpen 
+                      ? "border-purple-500/30 text-[#bf5af2] rotate-180" 
+                      : "border-zinc-800 text-zinc-500 group-hover:border-zinc-700 group-hover:text-zinc-300"
+                  }`}>
+                    {isOpen ? <FiMinus size={14} /> : <FiPlus size={14} />}
                   </div>
                 </button>
 
-                <AnimatePresence>
+                <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <div className="px-20 pb-10 relative">
-                        {/* Scanline Effect Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-fuchsia-500/[0.02] to-transparent h-full w-full pointer-events-none animate-scanline" />
-                        
-                        <p className="max-w-3xl text-lg leading-relaxed text-zinc-400 font-light">
+                      <div className="pb-8 pr-12">
+                        <p className="text-sm sm:text-base leading-relaxed text-zinc-400 font-medium max-w-3xl">
                           {faq.a}
                         </p>
-                        
-                        <div className="mt-8 flex items-center gap-6">
-                           <div className="flex items-center gap-2 text-fuchsia-500/50 font-mono text-[9px] uppercase tracking-widest">
-                              <FiActivity />
-                              <span>Verified Response</span>
-                           </div>
-                           <div className="h-[1px] flex-1 bg-zinc-800/50" />
-                           <span className="font-mono text-[9px] text-zinc-700 uppercase">Archive_Ref: {faq.id}</span>
-                        </div>
                       </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
-        {/* Support Section */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="mt-24 pt-12 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-8"
-        >
-          {/* <p className="text-zinc-500 text-sm font-mono uppercase tracking-[0.2em]">
-            Detailed specs required?
-          </p> */}
-          {/* <button className="relative group px-10 py-4 bg-white text-black text-xs font-black uppercase tracking-widest hover:bg-fuchsia-500 hover:text-white transition-all duration-300 rounded-none overflow-hidden">
-            <span className="relative z-10">Access Architect Logs</span>
-            <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white/40 opacity-40 group-hover:animate-shine" />
-          </button> */}
-        </motion.div>
       </div>
     </section>
   );
